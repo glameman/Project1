@@ -31,11 +31,11 @@ if($_SESSION['Type'] != 'Tenant')
 		<!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"><font color="white">Welcome, <?php echo $_SESSION['username']; ?></font>
+                <li class="sidebar-brand"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font>
                 </li>
-                <li><a href="tViewProjects.php">View Organization Projects</a>
+                <li><a href="tViewProjects.php">View Projects</a>
                 </li>
-                <li><a href="#">View Project Requirements</a>
+                <li><a href="tViewRequirements">View Requirements</a>
                 </li>
                 <li><a href="#">Add Users</a>
                 </li>

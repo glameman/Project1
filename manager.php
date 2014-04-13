@@ -22,7 +22,7 @@ session_start();
 		<!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">Welcome, <?php echo $_SESSION['username']; ?></a>
+                <li class="sidebar-brand"><a href="#">Welcome, <?php echo $_SESSION['FirstName']; ?></a>
                 </li>
                 <li><a href="sql.php">View Projects</a>
                 </li>

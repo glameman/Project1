@@ -31,7 +31,7 @@ if($_SESSION['Type'] != 'Worker')
 		<!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">Welcome, <?php echo $_SESSION['username']; ?><a href="#"></a>
+                <li class="sidebar-brand"><a href="#">Welcome, <?php echo $_SESSION['FirstName']; ?><a href="#"></a>
                 </li>
                 <li><a href="sql2.php">View My Requirements</a>
                 </li>
@@ -49,7 +49,8 @@ if($_SESSION['Type'] != 'Worker')
                 </li>
             </ul>
         </div>
-		
+
+		<div class="page-content inset">
 		<h1 align="center">WORKER PAGE
 
 			<?php
@@ -71,6 +72,7 @@ if($_SESSION['Type'] != 'Worker')
 
 
 		</h1>
+	</div>
 		
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>

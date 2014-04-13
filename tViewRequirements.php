@@ -1,11 +1,13 @@
 <?php
 
+ob_start();
+
 session_start();
 
 ?>
 <html>
 	<head>
-		<title>Project Management Tool</title>
+		<title>Organization Requirements</title>
 
 		<!-- Latest compiled and minified CSS -->
 		<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
@@ -16,15 +18,15 @@ session_start();
 
 	</head>
 <body>
-	<h1 align="center">My Requirements</h1>
+	<h1 align="center">Ogranization Requirements</h1>
 <?php
 
 	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 	mysql_select_db("my_db") or die("Could not find database");
 
-	////////////////////////Requirements
-	$userID = $_SESSION['UID'];
-	$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, P.ProjectID, P.ProjectName FROM project P, users U, requirements R WHERE U.UID = $userID and R.UID = U.UID and R.PID = P.ProjectID");
+	$tid = $_SESSION['TID'];
+
+	$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, R.Type, R.TimeRequired, U.FirstName, U.LastName FROM users U, requirements R WHERE U.TID = $tid and R.UID = U.UID");
 
 	$numrows = mysql_num_rows($query);
 	// Check connection
@@ -34,11 +36,12 @@ session_start();
 
 	echo "<table class='table table-striped' width='80%' align='center'>
 		<tr>
-		<th> Req ID </th>
-		<th> Req_Description </th>
-		<th> Req Status </th>
-		<th> Project ID </th>
-		<th> Project Name </th>
+		<th>ReqID</th>
+		<th>ReqDescription</th>
+		<th>Status</th>
+		<th>Type</th>
+		<th>TimeRequired</th>
+		<th>Assigned to</th>
 		</tr>";
 
 	while($row = mysql_fetch_assoc($query))
@@ -47,8 +50,9 @@ session_start();
 		echo "<td>" . $row['ReqID'] . "</td>";
 		echo "<td>" . $row['Req_Description'] . "</td>";
 		echo "<td>" . $row['Status'] . "</td>";
-		echo "<td>" . $row['ProjectID'] . "</td>";
-		echo "<td>" . $row['ProjectName'] . "</td>";
+		echo "<td>" . $row['Type'] . "</td>";
+		echo "<td>" . $row['TimeRequired'] . "</td>";
+		echo "<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
 		echo "</tr>";
 	}
 	
