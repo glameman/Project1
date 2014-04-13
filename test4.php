@@ -3,12 +3,12 @@
 
 $host = "localhost";
 $username = "root";
-$password = "kobenba";
+$password = "pass";
 $database =  "test";
 $table = "Persons";
 
 
-$conn = mysql_connect("localhost", "root", "kobenba") or die(mysql_error());
+$conn = mysql_connect("localhost", "root", "pass") or die(mysql_error());
 echo "connected<br><br>";
 
 mysql_select_db("$database");

@@ -18,7 +18,7 @@ session_start();
 <body>
 <?php
 
-	$con = mysql_connect("localhost","root","kobenba") or die("Could not connect to database");
+	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 	mysql_select_db("my_db") or die("Could not find database");
 
 	$query = mysql_query("SELECT * FROM users");

@@ -6,12 +6,12 @@
 
 	$host = "localhost";
 	$username = "root";
-	$password = "kobenba";
+	$password = "pass";
 	$database =  "my_db";
 	$table = "tenant";
 
 
-	$conn = mysql_connect("localhost", "root", "kobenba") or die(mysql_error());
+	$conn = mysql_connect("localhost", "root", "pass") or die(mysql_error());
 
 	mysql_select_db("$database");
 

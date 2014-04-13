@@ -7,7 +7,7 @@ session_start();
 	$username = $_SESSION['username'];
 	$password = $_SESSION['password'];
 
-	$con = mysql_connect("localhost","root","kobenba") or die("Could not connect to database");
+	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 	mysql_select_db("my_db") or die("Could not find database");
 
 	$query = mysql_query("SELECT TID FROM tenant WHERE Username = '$username' and Password = '$password'");
