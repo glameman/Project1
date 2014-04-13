@@ -45,6 +45,12 @@
 	<HR WIDTH="36%" SIZE="5" NOSHADE="NOSHADE">
 	    <form tag="Create Logon" action="addusersdb.php" method="post">
 		    <div align="center">
+		    	<?php if(isset($_GET['msg']))
+			  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+			  	?>
+			  	<?php if(isset($_GET['maxmsg']))
+			  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+			  	?>
 			    Username*: <input type="text" name="username" />
  				</br></br>
 			    Password*: <input type="password" name="password" />
@@ -68,12 +74,6 @@
  				</br>-->
 		            <input type="submit" value="Add User" />
 			  	</br><br>
-			  	<?php if(isset($_GET['msg']))
-			  		echo "<font color='green'><br>" . $_GET['msg'] . "</font><br>";
-			  	?>
-			  	<?php if(isset($_GET['maxmsg']))
-			  		echo "<font color='red'><br>" . $_GET['maxmsg'] . "</font><br>";
-			  	?>
 		    </div>
 	    </form><br>
 	    <div align="center">

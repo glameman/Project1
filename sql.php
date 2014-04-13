@@ -5,7 +5,7 @@ session_start();
 ?>
 <html>
 	<head>
-		<title>Project Management Tool</title>
+		<title>Manager Project</title>
 
 		<!-- Latest compiled and minified CSS -->
 		<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
@@ -16,34 +16,16 @@ session_start();
 
 	</head>
 <body>
+	<h1 align="center">My Projects</h1>
 <?php
 
 	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 	mysql_select_db("my_db") or die("Could not find database");
 
-	$query = mysql_query("SELECT * FROM users");
-
-	$numrows = mysql_num_rows($query);
 	// Check connection
 	
-	echo "Number of rows: " . $numrows;
+	//echo "Number of rows: " . $numrows;
 	echo "<br><br>";
-
-	echo "<table border='1'>
-		<tr>
-		<th>Firstname</th>
-		<th>Lastname</th>
-		</tr>";
-
-	while($row = mysql_fetch_assoc($query))
-	{
-		echo "<tr>";
-		echo "<td>" . $row['FirstName'] . "</td>";
-		echo "<td>" . $row['LastName'] . "</td>";
-		echo "</tr>";
-	}
-	
-	echo "</table>";
 
 	////////////////////////Projects
 	$userID = $_SESSION['UID'];
@@ -52,8 +34,6 @@ session_start();
 	$numrows = mysql_num_rows($query);
 	// Check connection
 	
-	echo "Number of rows: " . $numrows;
-	echo "<br><br>";
 
 	echo "<table class='table table-striped' width='80%' align='center'>
 		<tr>
@@ -77,7 +57,7 @@ session_start();
 	
 	echo "</table>";
 
-	echo "<br><br><a href='membersarea.php'>Click here to enter the members area</a>";
+	echo "<br><br><a href='logout.php'>Logout</a>";
 
 	mysql_close($con);
 ?>

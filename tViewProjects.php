@@ -18,6 +18,8 @@ session_start();
 
 	</head>
 <body>
+	<h1 align="center">Organization Projects</h1>
+
 <?php
 
 	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
@@ -30,7 +32,6 @@ session_start();
 	$numrows = mysql_num_rows($query);
 	// Check connection
 	
-	echo "Number of rows: " . $numrows;
 	echo "<br><br>";
 
 	echo "<table class='table table-striped' width='80%' align='center'>

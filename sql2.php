@@ -29,7 +29,7 @@ session_start();
 	$numrows = mysql_num_rows($query);
 	// Check connection
 	
-	echo "Number of rows: " . $numrows;
+	//echo "Number of rows: " . $numrows;
 	echo "<br><br>";
 
 	echo "<table class='table table-striped' width='80%' align='center'>
@@ -46,6 +46,11 @@ session_start();
 		echo "<tr>";
 		echo "<td>" . $row['ReqID'] . "</td>";
 		echo "<td>" . $row['Req_Description'] . "</td>";
+		/*echo "<td width='200'>" . "<select class='selectpicker' name='type' default='In Progress'>
+				    <option>Started</option>
+				    <option>In Progress</option>
+				    <option>Completed</option>
+				  </select>". $row['Status'] . " <form><input type='Submit' value='update'><form></td>";*/
 		echo "<td>" . $row['Status'] . "</td>";
 		echo "<td>" . $row['ProjectID'] . "</td>";
 		echo "<td>" . $row['ProjectName'] . "</td>";

@@ -31,7 +31,7 @@ session_start();
 	$numrows = mysql_num_rows($query);
 	// Check connection
 	
-	echo "Number of rows: " . $numrows;
+	//echo "Number of rows: " . $numrows;
 	echo "<br><br>";
 
 	echo "<table class='table table-striped' width='80%' align='center'>

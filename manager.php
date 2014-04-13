@@ -36,7 +36,7 @@ session_start();
                 </li>
                 <li><a href="#">Services</a>
                 </li>
-                <li><a href="#">Contact</a>
+                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -56,7 +56,6 @@ session_start();
 			echo "Type: " . $_SESSION['Type'];
 			echo "<p>";
 			echo "TID: " . $_SESSION['TID'];
-			echo "<p><a href='membersarea.php'>Click here to enter the members area</a>";
 
 			?>
 

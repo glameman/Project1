@@ -39,7 +39,7 @@ if($_SESSION['Type'] != 'Tenant')
                 </li>
                 <li><a href="#">Add Users</a>
                 </li>
-                <li><a href="#"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
+                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
                 </li>
             </ul>
         </div>
@@ -58,7 +58,6 @@ if($_SESSION['Type'] != 'Tenant')
 			echo "Last Name: " . $_SESSION['LastName'];
 			echo "<p>";
 			echo "Type: " . $_SESSION['Type'];
-			echo "<br><br><a href='membersarea.php'>Click here to enter the members area</a>";
 
 			?>
 

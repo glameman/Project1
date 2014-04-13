@@ -9,6 +9,6 @@ if($_SESSION['username'])
 	echo "<a href='logout.php'>Click here to logout</a>";
 }
 else
-	header("location: index.php");
+	header("location: logout.php");
 
 ?>
