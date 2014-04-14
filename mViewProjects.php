@@ -31,9 +31,9 @@ session_start();
 	                </li>
 	                <li><a href="mViewProjects.php">View Projects With Sidebar</a>
 	                </li>
-	                <li><a href="#">Overview</a>
+	                <li><a href="#">Create New Project</a>
 	                </li>
-	                <li><a href="#">Events</a>
+	                <li><a href="#">View Project Requirements</a>
 	                </li>
 	                <li><a href="#">About</a>
 	                </li>
