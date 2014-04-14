@@ -1,18 +1,13 @@
 <?php
 
-ob_start();
-
 session_start();
 
-if($_SESSION['Type'] != 'Worker')
-{
-	header("location: nopermission.php");
-}
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<title>Project Management Tool</title>
 		<link href="styles/main.css" rel="stylesheet"/>
 		
@@ -26,15 +21,15 @@ if($_SESSION['Type'] != 'Worker')
 	<body style="background-color:#F5F5DC;">
 
 		<div id="wrapper">
-		
+
 			<!-- Sidebar -->
 	        <div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
-	                <li class="sidebar-brand"><a href="worker.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
+	                <li class="sidebar-brand"><a href="manager.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
-	                <li><a href="sql2.php">View My Requirements</a>
+	                <li><a href="sql.php">View Projects</a>
 	                </li>
-	                <li><a href="wViewRequirements.php">View My Requirements With Sidebar</a>
+	                <li><a href="mViewProjects.php">View Projects With Sidebar</a>
 	                </li>
 	                <li><a href="#">Overview</a>
 	                </li>
@@ -48,28 +43,53 @@ if($_SESSION['Type'] != 'Worker')
 	                </li>
 	            </ul>
 	        </div>
-
 			<div class="page-content inset">
-				<h1 align="center">WORKER PAGE
+				<h1 align="center">My Projects</h1>
 
 					<?php
 
-					echo "<p>";
-					echo "<p>";
-					echo "User ID: " . $_SESSION['UID'];
-					echo "<p>";
-					echo "First Name: " . $_SESSION['FirstName'];
-					echo "<p>";
-					echo "Last Name: " . $_SESSION['LastName'];
-					echo "<p>";
-					echo "Type: " . $_SESSION['Type'];
-					echo "<p>";
-					echo "TID: " . $_SESSION['TID'];
+						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
+						mysql_select_db("my_db") or die("Could not find database");
 
+						// Check connection
+						
+						//echo "Number of rows: " . $numrows;
+						echo "<br><br>";
+
+						////////////////////////Projects
+						$userID = $_SESSION['UID'];
+						$query = mysql_query("SELECT * 
+											  FROM project 
+											  WHERE MID = $userID");
+
+						$numrows = mysql_num_rows($query);
+						// Check connection
+						
+
+						echo "<table class='table table-striped' width='80%' align='center'>
+							<tr>
+							<th> Project ID </th>
+							<th> Project Name </th>
+							<th> Status </th>
+							<th> Start Date </th>
+							<th> End Date </th>
+							</tr>";
+
+						while($row = mysql_fetch_assoc($query))
+						{
+							echo "<tr>";
+							echo "<td>" . $row['ProjectID'] . "</td>";
+							echo "<td>" . $row['ProjectName'] . "</td>";
+							echo "<td>" . $row['Status'] . "</td>";
+							echo "<td>" . $row['StartDate'] . "</td>";
+							echo "<td>" . $row['ExpectedEndDate'] . "</td>";
+							echo "</tr>";
+						}
+						
+						echo "</table>";
+
+						mysql_close($con);
 					?>
-
-
-				</h1>
 			</div>
 		</div>
 		

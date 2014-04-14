@@ -25,11 +25,11 @@ session_start();
 			<!-- Sidebar -->
 	        <div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
-	                <li class="sidebar-brand"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font>
+	                <li class="sidebar-brand"><a href="manager.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
 	                <li><a href="sql.php">View Projects</a>
 	                </li>
-	                <li><a href="#">Shortcuts</a>
+	                <li><a href="mViewProjects.php">View Projects With Sidebar</a>
 	                </li>
 	                <li><a href="#">Overview</a>
 	                </li>

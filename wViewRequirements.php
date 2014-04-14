@@ -50,26 +50,56 @@ if($_SESSION['Type'] != 'Worker')
 	        </div>
 
 			<div class="page-content inset">
-				<h1 align="center">WORKER PAGE
+				<h1 align="center">My Requirements</h1>
 
 					<?php
 
-					echo "<p>";
-					echo "<p>";
-					echo "User ID: " . $_SESSION['UID'];
-					echo "<p>";
-					echo "First Name: " . $_SESSION['FirstName'];
-					echo "<p>";
-					echo "Last Name: " . $_SESSION['LastName'];
-					echo "<p>";
-					echo "Type: " . $_SESSION['Type'];
-					echo "<p>";
-					echo "TID: " . $_SESSION['TID'];
+						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
+						mysql_select_db("my_db") or die("Could not find database");
 
-					?>
+						////////////////////////Requirements
+						$userID = $_SESSION['UID'];
+						$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, P.ProjectID, P.ProjectName 
+											  FROM project P, users U, requirements R 
+											  WHERE U.UID = $userID and R.UID = U.UID and R.PID = P.ProjectID");
+
+						$numrows = mysql_num_rows($query);
+						// Check connection
+						
+						//echo "Number of rows: " . $numrows;
+						echo "<br><br>";
+
+						echo "<table class='table table-striped' width='80%' align='center'>
+							<tr>
+							<th> Req ID </th>
+							<th> Req_Description </th>
+							<th> Req Status </th>
+							<th> Project ID </th>
+							<th> Project Name </th>
+							</tr>";
+
+						while($row = mysql_fetch_assoc($query))
+						{
+							echo "<tr>";
+							echo "<td>" . $row['ReqID'] . "</td>";
+							echo "<td>" . $row['Req_Description'] . "</td>";
+							/*echo "<td width='200'>" . "<select class='selectpicker' name='type' default='In Progress'>
+									    <option>Started</option>
+									    <option>In Progress</option>
+									    <option>Completed</option>
+									  </select>". $row['Status'] . " <form><input type='Submit' value='update'><form></td>";*/
+							echo "<td>" . $row['Status'] . "</td>";
+							echo "<td>" . $row['ProjectID'] . "</td>";
+							echo "<td>" . $row['ProjectName'] . "</td>";
+							echo "</tr>";
+						}
+						
+						echo "</table>";
+
+						mysql_close($con);
+						?>
 
 
-				</h1>
 			</div>
 		</div>
 		
