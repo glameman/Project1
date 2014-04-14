@@ -17,63 +17,75 @@ if($_SESSION['Type'] != 'Worker')
 		<link href="styles/main.css" rel="stylesheet"/>
 		
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
 
 		<!--simple sidebar css-->
 		<link href="css/simple-sidebar.css" rel="stylesheet">
 		
 	</head>
-	<body>
+	<body style="background-color:#F5F5DC;">
+
+		<div id="wrapper">
 		
-		<!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><a href="#">Welcome, <?php echo $_SESSION['FirstName']; ?><a href="#"></a>
-                </li>
-                <li><a href="sql2.php">View My Requirements</a>
-                </li>
-                <li><a href="#">Shortcuts</a>
-                </li>
-                <li><a href="#">Overview</a>
-                </li>
-                <li><a href="#">Events</a>
-                </li>
-                <li><a href="#">About</a>
-                </li>
-                <li><a href="#">Services</a>
-                </li>
-                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
-                </li>
-            </ul>
-        </div>
+			<!-- Sidebar -->
+	        <div id="sidebar-wrapper">
+	            <ul class="sidebar-nav">
+	                <li class="sidebar-brand"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font>
+	                </li>
+	                <li><a href="sql2.php">View My Requirements</a>
+	                </li>
+	                <li><a href="#">Shortcuts</a>
+	                </li>
+	                <li><a href="#">Overview</a>
+	                </li>
+	                <li><a href="#">Events</a>
+	                </li>
+	                <li><a href="#">About</a>
+	                </li>
+	                <li><a href="#">Services</a>
+	                </li>
+	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
+	                </li>
+	            </ul>
+	        </div>
 
-		<div class="page-content inset">
-		<h1 align="center">WORKER PAGE
+			<div class="page-content inset">
+				<h1 align="center">WORKER PAGE
 
-			<?php
+					<?php
 
-			echo "<p>";
-			echo "<p>";
-			echo "User ID: " . $_SESSION['UID'];
-			echo "<p>";
-			echo "First Name: " . $_SESSION['FirstName'];
-			echo "<p>";
-			echo "Last Name: " . $_SESSION['LastName'];
-			echo "<p>";
-			echo "Type: " . $_SESSION['Type'];
-			echo "<p>";
-			echo "TID: " . $_SESSION['TID'];
+					echo "<p>";
+					echo "<p>";
+					echo "User ID: " . $_SESSION['UID'];
+					echo "<p>";
+					echo "First Name: " . $_SESSION['FirstName'];
+					echo "<p>";
+					echo "Last Name: " . $_SESSION['LastName'];
+					echo "<p>";
+					echo "Type: " . $_SESSION['Type'];
+					echo "<p>";
+					echo "TID: " . $_SESSION['TID'];
 
-			?>
+					?>
 
 
-		</h1>
-	</div>
+				</h1>
+			</div>
+		</div>
 		
+		<!-- JavaScript -->
+	    <script src="js/jquery-1.10.2.js"></script>
+	    <script src="js/bootstrap.js"></script>
+
+	    <!-- Custom JavaScript for the Menu Toggle -->
+	    <script>
+	    $("#menu-toggle").click(function(e) {
+	        e.preventDefault();
+	        $("#wrapper").toggleClass("active");
+	    });
+	    </script>
+
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>

@@ -6,7 +6,7 @@
 		<link href="styles/main.css" rel="stylesheet"/>
 
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
 
 		<!--simple sidebar css-->
 		<link href="css/simple-sidebar.css" rel="stylesheet">

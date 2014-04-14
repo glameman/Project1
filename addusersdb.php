@@ -30,14 +30,17 @@
 		$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 		mysql_select_db("my_db") or die("Could not find database");
 
-		$query = mysql_query("SELECT * FROM users WHERE TID = '$tenantID'");
+		$query = mysql_query("SELECT * 
+							  FROM users 
+							  WHERE TID = '$tenantID'");
 
 		$numrows = mysql_num_rows($query);
 
 		if($numrows < 2)
 		{
 
-		mysql_query("INSERT INTO $table(FirstName, LastName, TID, Type, Username, Password) VALUES ('$firstname', '$lastname', '$tenantID', '$type', '$username', '$password')") or die(mysql_error());
+		mysql_query("INSERT INTO $table(FirstName, LastName, TID, Type, Username, Password) 
+					 VALUES ('$firstname', '$lastname', '$tenantID', '$type', '$username', '$password')") or die(mysql_error());
 
 		mysql_close($conn);
 

@@ -17,55 +17,67 @@ if($_SESSION['Type'] != 'Tenant')
 		<link href="styles/main.css" rel="stylesheet"/>
 		
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
 
 		<!--simple sidebar css-->
 		<link href="css/simple-sidebar.css" rel="stylesheet">
 		
 	</head>
-	<body>
+	<body style="background-color:#F5F5DC;">
+
+		<div id="wrapper">
 		
-		<!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font>
-                </li>
-                <li><a href="tViewProjects.php">View Projects</a>
-                </li>
-                <li><a href="tViewRequirements">View Requirements</a>
-                </li>
-                <li><a href="#">Add Users</a>
-                </li>
-                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
-                </li>
-            </ul>
-        </div>
+			<!-- Sidebar -->
+	        <div id="sidebar-wrapper">
+	            <ul class="sidebar-nav">
+	                <li class="sidebar-brand"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font>
+	                </li>
+	                <li><a href="tViewProjects.php">View Projects</a>
+	                </li>
+	                <li><a href="tViewRequirements">View Requirements</a>
+	                </li>
+	                <li><a href="addusers.php">Add Users</a>
+	                </li>
+	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
+	                </li>
+	            </ul>
+	        </div>
 		
-		<div class="page-content inset">
-		<h1 align="center">TENANT PAGE
+			<div class="page-content inset">
+				<h1 align="center">TENANT PAGE
 
-			<?php
+					<?php
 
-			echo "<p>";
-			echo "<p>";
-			echo "Tenant ID: " . $_SESSION['TID'];
-			echo "<p>";
-			echo "First Name: " . $_SESSION['FirstName'];
-			echo "<p>";
-			echo "Last Name: " . $_SESSION['LastName'];
-			echo "<p>";
-			echo "Type: " . $_SESSION['Type'];
+					echo "<p>";
+					echo "<p>";
+					echo "Tenant ID: " . $_SESSION['TID'];
+					echo "<p>";
+					echo "First Name: " . $_SESSION['FirstName'];
+					echo "<p>";
+					echo "Last Name: " . $_SESSION['LastName'];
+					echo "<p>";
+					echo "Type: " . $_SESSION['Type'];
 
-			?>
+					?>
 
 
-		</h1>
-	</div>
+				</h1>
+			</div>
+		</div>
+
+		<!-- JavaScript -->
+	    <script src="js/jquery-1.10.2.js"></script>
+	    <script src="js/bootstrap.js"></script>
+
+	    <!-- Custom JavaScript for the Menu Toggle -->
+	    <script>
+	    $("#menu-toggle").click(function(e) {
+	        e.preventDefault();
+	        $("#wrapper").toggleClass("active");
+	    });
+	    </script>
 		
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>

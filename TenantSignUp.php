@@ -31,7 +31,8 @@
 		$_SESSION['password']= $password;
 		$_SESSION['Type'] = 'Tenant';
 
-		mysql_query("INSERT INTO $table(FirstName, LastName, CompanyLogoName, Type, Username, Password) VALUES ('$firstname', '$lastname', '$orgname', '$type', '$username', '$password')") or die(mysql_error());
+		mysql_query("INSERT INTO $table(FirstName, LastName, CompanyLogoName, Type, Username, Password) 
+					 VALUES ('$firstname', '$lastname', '$orgname', '$type', '$username', '$password')") or die(mysql_error());
 
 		mysql_close($conn);
 

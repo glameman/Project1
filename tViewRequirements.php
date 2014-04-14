@@ -17,16 +17,19 @@ session_start();
 		<link href="css/simple-sidebar.css" rel="stylesheet">
 
 	</head>
-<body>
+	<body>
 	<h1 align="center">Ogranization Requirements</h1>
-<?php
+	
+	<?php
 
 	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 	mysql_select_db("my_db") or die("Could not find database");
 
 	$tid = $_SESSION['TID'];
 
-	$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, R.Type, R.TimeRequired, U.FirstName, U.LastName FROM users U, requirements R WHERE U.TID = $tid and R.UID = U.UID");
+	$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, R.Type, R.TimeRequired, U.FirstName, U.LastName 
+						  FROM users U, requirements R 
+						  WHERE U.TID = $tid and R.UID = U.UID");
 
 	$numrows = mysql_num_rows($query);
 	// Check connection
@@ -61,7 +64,8 @@ session_start();
 	echo "<br><br><a href='logout.php'>Logout</a>";
 
 	mysql_close($con);
-?>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</body>
+	?>
+
+	<script src="js/bootstrap.min.js"></script>
+	</body>
 </html>

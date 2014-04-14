@@ -12,7 +12,9 @@ if($username&&$password)
 	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 	mysql_select_db("my_db") or die("Could not find database");
 
-	$query = mysql_query("SELECT * FROM users WHERE Username = '$username'");
+	$query = mysql_query("SELECT * 
+						  FROM users 
+						  WHERE Username = '$username'");
 
 	$numrows = mysql_num_rows($query);
 
@@ -31,7 +33,6 @@ if($username&&$password)
 
 		if($username == $dbusername && $password == $dbpassword)
 		{
-			echo "Login successful.";//" <a href='membersarea.php'>Click here to enter the members area</a>";
 			$_SESSION['username']= $dbusername;
 			$_SESSION['UID']= $dbUID;
 			$_SESSION['FirstName']= $dbfirstname;
@@ -73,7 +74,9 @@ if($username&&$password)
 	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 	mysql_select_db("my_db") or die("Could not find database");
 
-	$query = mysql_query("SELECT * FROM tenant WHERE Username = '$username'");
+	$query = mysql_query("SELECT * 
+						  FROM tenant 
+						  WHERE Username = '$username'");
 
 	$numrows = mysql_num_rows($query);
 
@@ -91,7 +94,6 @@ if($username&&$password)
 
 		if($username == $dbusername && $password == $dbpassword)
 		{
-			echo "Login successful.";//" <a href='membersarea.php'>Click here to enter the members area</a>";
 			$_SESSION['username']= $dbusername;
 			$_SESSION['TID']= $dbTID;
 			$_SESSION['FirstName']= $dbfirstname;

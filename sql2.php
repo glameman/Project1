@@ -15,54 +15,58 @@ session_start();
 		<link href="css/simple-sidebar.css" rel="stylesheet">
 
 	</head>
-<body>
-	<h1 align="center">My Requirements</h1>
-<?php
+	<body>
+		<h1 align="center">My Requirements</h1>
 
-	$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
-	mysql_select_db("my_db") or die("Could not find database");
+		<?php
 
-	////////////////////////Requirements
-	$userID = $_SESSION['UID'];
-	$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, P.ProjectID, P.ProjectName FROM project P, users U, requirements R WHERE U.UID = $userID and R.UID = U.UID and R.PID = P.ProjectID");
+		$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
+		mysql_select_db("my_db") or die("Could not find database");
 
-	$numrows = mysql_num_rows($query);
-	// Check connection
-	
-	//echo "Number of rows: " . $numrows;
-	echo "<br><br>";
+		////////////////////////Requirements
+		$userID = $_SESSION['UID'];
+		$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, P.ProjectID, P.ProjectName 
+							  FROM project P, users U, requirements R 
+							  WHERE U.UID = $userID and R.UID = U.UID and R.PID = P.ProjectID");
 
-	echo "<table class='table table-striped' width='80%' align='center'>
-		<tr>
-		<th> Req ID </th>
-		<th> Req_Description </th>
-		<th> Req Status </th>
-		<th> Project ID </th>
-		<th> Project Name </th>
-		</tr>";
+		$numrows = mysql_num_rows($query);
+		// Check connection
+		
+		//echo "Number of rows: " . $numrows;
+		echo "<br><br>";
 
-	while($row = mysql_fetch_assoc($query))
-	{
-		echo "<tr>";
-		echo "<td>" . $row['ReqID'] . "</td>";
-		echo "<td>" . $row['Req_Description'] . "</td>";
-		/*echo "<td width='200'>" . "<select class='selectpicker' name='type' default='In Progress'>
-				    <option>Started</option>
-				    <option>In Progress</option>
-				    <option>Completed</option>
-				  </select>". $row['Status'] . " <form><input type='Submit' value='update'><form></td>";*/
-		echo "<td>" . $row['Status'] . "</td>";
-		echo "<td>" . $row['ProjectID'] . "</td>";
-		echo "<td>" . $row['ProjectName'] . "</td>";
-		echo "</tr>";
-	}
-	
-	echo "</table>";
+		echo "<table class='table table-striped' width='80%' align='center'>
+			<tr>
+			<th> Req ID </th>
+			<th> Req_Description </th>
+			<th> Req Status </th>
+			<th> Project ID </th>
+			<th> Project Name </th>
+			</tr>";
 
-	echo "<br><br><a href='logout.php'>Logout</a>";
+		while($row = mysql_fetch_assoc($query))
+		{
+			echo "<tr>";
+			echo "<td>" . $row['ReqID'] . "</td>";
+			echo "<td>" . $row['Req_Description'] . "</td>";
+			/*echo "<td width='200'>" . "<select class='selectpicker' name='type' default='In Progress'>
+					    <option>Started</option>
+					    <option>In Progress</option>
+					    <option>Completed</option>
+					  </select>". $row['Status'] . " <form><input type='Submit' value='update'><form></td>";*/
+			echo "<td>" . $row['Status'] . "</td>";
+			echo "<td>" . $row['ProjectID'] . "</td>";
+			echo "<td>" . $row['ProjectName'] . "</td>";
+			echo "</tr>";
+		}
+		
+		echo "</table>";
 
-	mysql_close($con);
-?>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</body>
+		echo "<br><br><a href='logout.php'>Logout</a>";
+
+		mysql_close($con);
+		?>
+		
+		<script src="js/bootstrap.min.js"></script>
+	</body>
 </html>
