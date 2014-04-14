@@ -42,23 +42,25 @@ session_start();
 		</header>
 
 		<br><br><br><br>
-		<div class="panel panel-primary" style="margin-left: 300px; margin-right: 300px">
-		  	<div class="panel-heading">
-		    	<h2 class="panel-title" align="left"><b>Login</b></h2>
-		  	</div>
+		<div align="center">
+			<div class="panel panel-primary" style="width: 675px">
+			  	<div class="panel-heading">
+			    	<h2 class="panel-title" align="left"><b>Login</b></h2>
+			  	</div>
 
-		  	<div align="center">
-			    <?php if(isset($_GET['msg']))
-			  		echo "<font color='red'><br>" . $_GET['msg'] . "</font>";
-			  	?>	
-		    </div>
-		  	<form action="login.php" method="post" align="center"><br><br>
-				Username <input type="text" name="username"><br><br>
-				Password &#160<input type="password" name="password"><br><br><br>
-				<div class="panel-footer">
-					<input type="submit"><br>
-				</div>
-			</form>
+			  	<div align="center">
+				    <?php if(isset($_GET['msg']))
+				  		echo "<font color='red'><br>" . $_GET['msg'] . "</font>";
+				  	?>	
+			    </div>
+			  	<form action="login.php" method="post" align="center"><br><br>
+					Username <input type="text" name="username"><br><br>
+					Password &#160<input type="password" name="password"><br><br><br>
+					<div class="panel-footer">
+						<input type="submit"><br>
+					</div>
+				</form>
+			</div>
 		</div>
 
 		<br><br><br><br><br><hr WIDTH="80%">
