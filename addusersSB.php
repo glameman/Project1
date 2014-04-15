@@ -44,51 +44,34 @@ if($_SESSION['Type'] != 'Tenant')
 	        </div>
 		
 			<div class="page-content inset">
-				<h1 align="center">Organization Requirements</h1>
-
-					<?php
-
-						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
-						mysql_select_db("my_db") or die("Could not find database");
-
-						$tid = $_SESSION['TID'];
-
-						$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, R.Type, R.TimeRequired, U.FirstName, U.LastName 
-											  FROM users U, requirements R 
-											  WHERE U.TID = $tid and R.UID = U.UID");
-
-						$numrows = mysql_num_rows($query);
-						// Check connection
-						
-						//echo "Number of rows: " . $numrows;
-						echo "<br><br>";
-
-						echo "<table class='table table-striped' width='80%' align='center'>
-							<tr>
-							<th>ReqID</th>
-							<th>ReqDescription</th>
-							<th>Status</th>
-							<th>Type</th>
-							<th>TimeRequired</th>
-							<th>Assigned to</th>
-							</tr>";
-
-						while($row = mysql_fetch_assoc($query))
-						{
-							echo "<tr>";
-							echo "<td>" . $row['ReqID'] . "</td>";
-							echo "<td>" . $row['Req_Description'] . "</td>";
-							echo "<td>" . $row['Status'] . "</td>";
-							echo "<td>" . $row['Type'] . "</td>";
-							echo "<td>" . $row['TimeRequired'] . "</td>";
-							echo "<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
-							echo "</tr>";
-						}
-						
-						echo "</table>";
-
-						mysql_close($con);
-						?>
+				<h1 align="center">Add Users</h1>
+					<HR WIDTH="36%" SIZE="5" NOSHADE="NOSHADE">
+					    <form tag="Create Logon" action="addusersdbSB.php" method="post">
+						    <div align="center">
+						    	<?php if(isset($_GET['msg']))
+							  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+							  	?>
+							  	<?php if(isset($_GET['maxmsg']))
+							  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+							  	?>
+							    Username*: <input type="text" name="username" />
+				 				</br></br>
+							    Password*: <input type="password" name="password" />
+				 				</br><br>
+							    First Name* : <input type="text" name="firstname" />
+				 				</br><br>
+							    Last Name* : <input type="text" name="lastname" />
+				 				</br><br>
+				 				Type: 
+							   	<select class="selectpicker" name="type">
+								    <option>Manager</option>
+								    <option>Worker</option>
+								</select>
+				 				</br><br><br>
+						            <input type="submit" value="Add User" />
+							  	</br><br>
+						    </div>
+					    </form>
 				
 			</div>
 		</div>

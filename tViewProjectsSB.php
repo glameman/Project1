@@ -32,15 +32,11 @@ if($_SESSION['Type'] != 'Tenant')
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand"><a href="tenant.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
-	                <li><a href="tViewProjects.php">View Projects</a>
+	                <li><a href="tViewProjectsSB.php">View Projects</a>
 	                </li>
-	                <li><a href="tViewProjectsSB.php">View Projects With Sidebar</a>
+	                <li><a href="tViewRequirementsSB.php">View Requirements</a>
 	                </li>
-	                <li><a href="tViewRequirements.php">View Requirements</a>
-	                </li>
-	                <li><a href="tViewRequirementsSB.php">View Requirements With Sidebar</a>
-	                </li>
-	                <li><a href="addusers.php">Add Users</a>
+	                <li><a href="addusersSB.php">Add Users</a>
 	                </li>
 	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
 	                </li>
