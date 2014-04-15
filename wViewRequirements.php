@@ -32,18 +32,10 @@ if($_SESSION['Type'] != 'Worker')
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand"><a href="worker.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
-	                <li><a href="sql2.php">View My Requirements</a>
-	                </li>
-	                <li><a href="wViewRequirements.php">View My Requirements With Sidebar</a>
-	                </li>
-	                <li><a href="#">Overview</a>
-	                </li>
-	                <li><a href="#">Events</a>
-	                </li>
-	                <li><a href="#">About</a>
-	                </li>
-	                <li><a href="#">Services</a>
-	                </li>
+	                <?php
+	                if($_SESSION['WViewReq'] == 1)
+	                	echo "<li><a href='wViewRequirements.php'>View My Requirements</a></li>";
+	                ?>
 	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
 	                </li>
 	            </ul>

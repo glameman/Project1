@@ -45,19 +45,19 @@
 		mysql_close($conn);
 
 		$msg = "User Successfully Added";
-		header("Location:addusersSB.php?msg=$msg");
+		header("Location:tAddUsersSB.php?msg=$msg");
 		}
 		else
 		{
 			mysql_close();
 
 			$maxmsg = "User not added. Max number of users reached.";
-			header("Location:addusersSB.php?maxmsg=$maxmsg");
+			header("Location:tAddUsersSB.php?maxmsg=$maxmsg");
 		}
 	}
 	else
 	{
 		$maxmsg = "You left one or more of the required fields blank";
-		header("Location:addusersSB.php?maxmsg=$maxmsg");
+		header("Location:tAddUsersSB.php?maxmsg=$maxmsg");
 	}
 ?>

@@ -32,12 +32,18 @@ if($_SESSION['Type'] != 'Tenant')
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand"><a href="tenant.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
-	                <li><a href="tViewProjectsSB.php">View Projects</a>
-	                </li>
-	                <li><a href="tViewRequirementsSB.php">View Requirements</a>
-	                </li>
-	                <li><a href="addusersSB.php">Add Users</a>
-	                </li>
+	                <?php
+	                if($_SESSION['TViewProj'] == 1)
+	                	echo "<li><a href='tViewProjectsSB.php'>View Projects</a></li>";
+	                ?>
+	                <?php
+	                if($_SESSION['TViewReq'] == 1)
+	                	echo "<li><a href='tViewRequirementsSB.php'>View Requirements</a></li>";
+	                ?>
+	                <?php
+	                if($_SESSION['TAddUsers'] == 1)
+	                	echo "<li><a href='tAddUsersSB.php'>Add Users</a></li>";
+	                ?>
 	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
 	                </li>
 	            </ul>
@@ -46,7 +52,7 @@ if($_SESSION['Type'] != 'Tenant')
 			<div class="page-content inset">
 				<h1 align="center">Add Users</h1>
 					<HR WIDTH="36%" SIZE="5" NOSHADE="NOSHADE">
-					    <form tag="Create Logon" action="addusersdbSB.php" method="post">
+					    <form tag="Create Logon" action="tAddUsersdbSB.php" method="post">
 						    <div align="center">
 						    	<?php if(isset($_GET['msg']))
 							  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";

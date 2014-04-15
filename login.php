@@ -40,6 +40,25 @@ if($username&&$password)
 			$_SESSION['Type']= $dbtype;
 			$_SESSION['TID']= $dbTID;
 
+			$query = mysql_query("SELECT * 
+						  FROM services 
+						  WHERE TID = '$dbTID'");
+
+			while($row = mysql_fetch_assoc($query))
+			{
+				$_SESSION['TViewProj'] = $row['TViewProj'];
+				$_SESSION['TViewReq'] = $row['TViewReq'];
+				$_SESSION['TAddUsers'] = $row['TAddUsers'];
+				$_SESSION['MAddProj'] = $row['MAddProj'];
+				$_SESSION['MChangePStatus'] = $row['MChangePStatus'];
+				$_SESSION['MViewPReq'] = $row['MViewPReq'];
+				$_SESSION['MViewProj'] = $row['MViewProj'];
+				$_SESSION['WViewReq'] = $row['WViewReq'];
+				$_SESSION['WChangeRStatus'] = $row['WChangeRStatus'];
+			}
+
+			mysql_close();
+
 			if($_SESSION['Type'] == 'Manager')
 			{
 				header("Location: manager.php");
@@ -64,6 +83,7 @@ if($username&&$password)
 
 		else
 		{
+			mysql_close();
 			//echo "Incorrect password";
 			$msg = "Password Incorrect";
 			header("Location:index.php?msg=$msg");
@@ -100,6 +120,25 @@ if($username&&$password)
 			$_SESSION['LastName']= $dblastname;
 			$_SESSION['Type']= $dbtype;
 
+			$query = mysql_query("SELECT * 
+						  FROM services 
+						  WHERE TID = '$dbTID'");
+
+			while($row = mysql_fetch_assoc($query))
+			{
+				$_SESSION['TViewProj'] = $row['TViewProj'];
+				$_SESSION['TViewReq'] = $row['TViewReq'];
+				$_SESSION['TAddUsers'] = $row['TAddUsers'];
+				$_SESSION['MAddProj'] = $row['MAddProj'];
+				$_SESSION['MChangePStatus'] = $row['MChangePStatus'];
+				$_SESSION['MViewPReq'] = $row['MViewPReq'];
+				$_SESSION['MViewProj'] = $row['MViewProj'];
+				$_SESSION['WViewReq'] = $row['WViewReq'];
+				$_SESSION['WChangeRStatus'] = $row['WChangeRStatus'];
+			}
+
+			mysql_close();
+
 			if($_SESSION['Type'] == 'Tenant')
 			{
 				header("Location: tenant.php");
@@ -114,6 +153,7 @@ if($username&&$password)
 
 		else
 		{
+			mysql_close();
 			//echo "Incorrect password";
 			$msg = "Password Incorrect";
 			header("Location:index.php?msg=$msg");
@@ -125,6 +165,7 @@ if($username&&$password)
 
 	else
 	{
+		mysql_close();
 		//die("That username does not exist");
 		$msg = "That username does not exist";
 		header("Location:index.php?msg=$msg");

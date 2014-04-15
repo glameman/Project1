@@ -27,18 +27,18 @@ session_start();
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand"><a href="manager.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
-	                <li><a href="sql.php">View Projects</a>
-	                </li>
-	                <li><a href="mViewProjects.php">View Projects With Sidebar</a>
-	                </li>
-	                <li><a href="#">Create New Project</a>
-	                </li>
-	                <li><a href="#">View Project Requirements</a>
-	                </li>
-	                <li><a href="#">About</a>
-	                </li>
-	                <li><a href="#">Services</a>
-	                </li>
+	                <?php
+	                if($_SESSION['MViewProj'] == 1)
+	                	echo "<li><a href='mViewProjects.php'>View Projects</a></li>";
+	                ?>
+	                <?php
+	                if($_SESSION['MAddProj'] == 1)
+	                	echo "<li><a href='#'>Create New Project</a></li>";
+	                ?>
+	                <?php
+	                if($_SESSION['MViewPReq'] == 1)
+	                	echo "<li><a href='#'>View Project Requirements</a></li>";
+	                ?>
 	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
 	                </li>
 	            </ul>
@@ -59,6 +59,8 @@ session_start();
 					echo "Type: " . $_SESSION['Type'];
 					echo "<p>";
 					echo "TID: " . $_SESSION['TID'];
+					echo "<p>";
+
 
 					?>
 
