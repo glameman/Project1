@@ -37,7 +37,7 @@
 	</header>
   	<H1 ALIGN="CENTER">Select Services</H1>
 	<HR WIDTH="36%" SIZE="5" NOSHADE="NOSHADE">
-		<form action=".php" method="post" align="center">
+		<form action="storeTServices.php" method="post" align="center">
 
 			<table align="center" style="width:900px">
 				<tr>
@@ -47,24 +47,24 @@
 				</tr>
 				<tr>
 					<td align="center" valign="top"><table><tr><td align="left"><br>
-						<input type="checkbox" name="" value="" checked="true"/> View All Organization Projects<br /><br>
-						<input type="checkbox" name="" value="" checked="true"/> View All Organization Requirements<br /><br>
-						<input type="checkbox" name="" value="" checked="true"/> Add Users After Initial Sign Up<br /><br>
+						<input type="checkbox" name="TViewProj" value="yes" checked="true"/> View All Organization Projects<br /><br>
+						<input type="checkbox" name="TViewReq" value="yes" checked="true"/> View All Organization Requirements<br /><br>
+						<input type="checkbox" name="TAddUsers" value="yes" checked="true"/> Add Users After Initial Sign Up<br /><br>
 					</td></tr></table></td>
 					<td align="center" valign="top"><table><tr><td align="left"><br>
-						<input type="checkbox" name="" value="" checked="true"/> Create New Project<br /><br>
-						<input type="checkbox" name="" value="" checked="true"/> Change Project Status<br /><br>
-						<input type="checkbox" name="" value="" checked="true"/> View Managed Projects<br /><br>
-						<input type="checkbox" name="" value="" checked="true"/> View Project Requirements<br /><br>
+						<input type="checkbox" name="MAddProj" value="yes" checked="true"/> Create New Project<br /><br>
+						<input type="checkbox" name="MChangePStatus" value="yes" checked="true"/> Change Project Status<br /><br>
+						<input type="checkbox" name="MViewProj" value="yes" checked="true"/> View Managed Projects<br /><br>
+						<input type="checkbox" name="MViewPReq" value="yes" checked="true"/> View Project Requirements<br /><br>
 					</td></tr></table></td>
 					<td align="center" valign="top"><table><tr><td align="left"><br>
-						<input type="checkbox" name="" value="" checked="true"/> View Assigned Requirements<br /><br>
-						<input type="checkbox" name="" value="" checked="true"/> Change Requirement Status<br /><br>
+						<input type="checkbox" name="WViewReq" value="yes" checked="true"/> View Assigned Requirements<br /><br>
+						<input type="checkbox" name="WChangeRStatus" value="yes" checked="true"/> Change Requirement Status<br /><br>
 					</td></tr></table></td>
 				</tr>
 			</table><br><br><br>
 			 
-			<input disabled="true" type="submit" name="formSubmit" value="Submit" />//button disabled for now; in progress
+			<input type="submit" name="formSubmit" value="Next" />
 		 
 		</form>
     
