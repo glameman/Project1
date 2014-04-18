@@ -28,7 +28,7 @@ if($_SESSION['Type'] != 'Tenant')
 		<div id="wrapper">
 		
 			<!-- Sidebar -->
-	        <div id="sidebar-wrapper" style="background-color: #192E40">
+	        <div id="sidebar-wrapper" style="background-color: #000000">
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand"><a href="tenant.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
@@ -103,7 +103,7 @@ if($_SESSION['Type'] != 'Tenant')
 					{
                     echo "<div class='panel panel-default'>
 					  <!-- Default panel contents -->
-					  <div class='panel-heading' style='background-color: #324759'>
+					  <div class='panel-heading' style='background-color: #000000'>
 					  	<table width='100%'><tr>
 					  	<td>
 						  	<h3><font color='white'>Project ID: " . $row['ProjectID'] . "<br>
