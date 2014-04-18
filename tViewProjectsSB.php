@@ -90,6 +90,22 @@ if($_SESSION['Type'] != 'Tenant')
 									echo "<td>" . $row['FirstName'] . "</td>";
 									echo "<td>" . $row['LastName'] . "</td>";
 									echo "</tr>";
+
+									$PID = $row['ProjectID'];
+					  				$query2 = mysql_query("SELECT U.UID, U.FirstName, U.LastName 
+											 			   FROM users U, requirements R 
+														   WHERE  R.PID = $PID and R.UID = U.UID");
+					  				$numrows2 = mysql_num_rows($query2);
+					  				$count1 = 1;
+
+					  				while($row2 = mysql_fetch_assoc($query2))
+								    {
+								    	if($count1 < $numrows2)
+								    		echo "<tr><td colspan='7' align='left'>" . $row2['FirstName'] . " " . $row2['LastName'] . " " . $row['ProjectID'] . ", </td>";
+								    	else
+								    		echo "<tr><td colspan='7'>" . $row2['FirstName'] . " " . $row2['LastName'] . " " . $row['ProjectID'] . "</td>";
+								    	echo "</tr>";
+									}
 								}
 
 								echo "</table>";
