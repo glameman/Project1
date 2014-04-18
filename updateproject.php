@@ -33,7 +33,7 @@ session_start();
 	                ?>
 	                <?php
 	                if($_SESSION['MAddProj'] == 1)
-	                	echo "<li><a href='mAddProject.php'>Create New Project</a></li>";
+	                	echo "<li><a href='#'>Create New Project</a></li>";
 	                ?>
 	                <?php
 	                if($_SESSION['MViewPReq'] == 1)
@@ -44,27 +44,35 @@ session_start();
 	            </ul>
 	        </div>
 			<div class="page-content inset">
-				<h1 align="center">My Projects</h1>
-
+				<h1 align="center">Project Update</h1>
 				
-					 <form tag="Change Status" action="updateproject.php" method="post">
+				<form tag="Update Status" action="updateproject.php" method="post">
 						<div align="center">
-		    	<?php if(isset($_GET['msg']))
-			  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-			  	?>
-			  	<?php if(isset($_GET['maxmsg']))
-			  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-			  	?>
-			    ProjectID: <input type="text" name="ProjectID" />
- 				
+						<?php if(isset($_GET['msg']))
+						echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+						?>
+						<?php if(isset($_GET['maxmsg']))
+						echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+						?>
+						Status: 
+						
+						
+						<select class="selectpicker" name="type">
+						<option>Started</option>
+						<option>In Progress</option>
+						<option>Incompleted</option>
+						</select>
 		            
-		            <input type="submit" value="Edit Project" />
-			  	</br><br>
-				</div>
-				</form>
+						<input type="submit" value="Updated_Status" />
+						</br><br>
+						</div>
+						</form>
+						
+						
 				
 				
-					<?php
+				
+				<?php
 
 						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 						mysql_select_db("my_db") or die("Could not find database");
@@ -75,12 +83,13 @@ session_start();
 						echo "<br><br>";
 
 						////////////////////////Projects
-						$userID = $_SESSION['UID'];
-						$query = mysql_query("SELECT * 
+						$StatusUp = $_POST['Updated_Status'];
+						$PID = $_POST ['ProjectID'];
+						$query = mysql_query("UPDATE Status SET Status = Updated_Status
 											  FROM project 
-											  WHERE MID = $userID");
+											  WHERE ProjectID = $PID");
 
-						$numrows = mysql_num_rows($query);
+				//		$numrows = mysql_num_rows($query);
 						// Check connection
 						
 						
@@ -117,22 +126,5 @@ session_start();
 
 						mysql_close($con);
 					?>
-			</div>
-		</div>
-		
-		<!-- JavaScript -->
-	    <script src="js/jquery-1.10.2.js"></script>
-	    <script src="js/bootstrap.js"></script>
-
-	    <!-- Custom JavaScript for the Menu Toggle -->
-	    <script>
-	    $("#menu-toggle").click(function(e) {
-	        e.preventDefault();
-	        $("#wrapper").toggleClass("active");
-	    });
-	    </script>
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="js/bootstrap.min.js"></script>
-	</body>
-</html>
+				
+				
