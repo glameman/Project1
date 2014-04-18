@@ -65,7 +65,7 @@ if($_SESSION['Type'] != 'Tenant')
 
 								$numrows = mysql_num_rows($query);
 								// Check connection
-								
+
 								echo "<br><br>";
 
 								echo "<table class='table table-striped' width='80%' align='center'>
@@ -91,7 +91,7 @@ if($_SESSION['Type'] != 'Tenant')
 									echo "<td>" . $row['LastName'] . "</td>";
 									echo "</tr>";
 								}
-								
+
 								echo "</table>";
 
 								mysql_close($con);

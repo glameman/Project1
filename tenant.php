@@ -36,6 +36,7 @@ if($_SESSION['Type'] != 'Tenant')
 	                if($_SESSION['TViewProj'] == 1)
 	                	echo "<li><a href='tViewProjectsSB.php'>View Projects</a></li>";
 	                ?>
+	                <li><a href='tViewProjectsSB1.php'>View Projects 2</a></li>
 	                <?php
 	                if($_SESSION['TViewReq'] == 1)
 	                	echo "<li><a href='tViewRequirementsSB.php'>View Requirements</a></li>";
