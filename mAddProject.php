@@ -60,10 +60,6 @@
                 <p>Note: Please make sure your details are correct before submitting and that all fields marked with * are completed!.</p>
             </div>
         </form>
- 
-
-    
- 
         <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
