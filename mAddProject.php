@@ -48,18 +48,15 @@
                 </br><br>
                 Expected End Date (YYYY-MM-DD): <input type="text" name="enddate" />
                 </br><br>
-                Status:
-                <select class="selectpicker" name="status">
-                    <option>Started</option>
-                    <option>In Progress</option>
-                    <option>Completed</option>
-                </select>
-                </br><br>
                     <input type="submit" value="Submit" />
                     </br><br>
                 <p>Note: Please make sure your details are correct before submitting and that all fields marked with * are completed!.</p>
             </div>
         </form>
+ 
+
+    
+ 
         <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
