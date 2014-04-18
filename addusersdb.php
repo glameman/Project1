@@ -36,7 +36,7 @@
 
 		$numrows = mysql_num_rows($query);
 
-		if($numrows < 2)
+		if($numrows < 10)
 		{
 
 		mysql_query("INSERT INTO $table(FirstName, LastName, TID, Type, Username, Password) 
