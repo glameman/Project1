@@ -32,6 +32,16 @@
 	echo "WViewReq: " . $WViewReq . "<br>";
 	echo "WChangeRStatus: " . $WChangeRStatus . "<br>";
 
+	$_SESSION['TViewProj'] = $TViewProj;
+	$_SESSION['TViewReq'] = $TViewReq;
+	$_SESSION['TAddUsers'] = $TAddUsers;
+	$_SESSION['MAddProj'] = $MAddProj;
+	$_SESSION['MChangePStatus'] = $MChangePStatus;
+	$_SESSION['MViewProj'] = $MViewProj;
+	$_SESSION['MViewPReq'] = $MViewPReq;
+	$_SESSION['WViewReq'] = $WViewReq;
+	$_SESSION['WChangeRStatus'] = $WChangeRStatus;
+
 	
 	$conn = mysql_connect("localhost", "root", "pass") or die(mysql_error());
 
