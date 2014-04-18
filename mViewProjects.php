@@ -33,7 +33,7 @@ session_start();
 	                ?>
 	                <?php
 	                if($_SESSION['MAddProj'] == 1)
-	                	echo "<li><a href='#'>Create New Project</a></li>";
+	                	echo "<li><a href='mAddProject.php'>Create New Project</a></li>";
 	                ?>
 	                <?php
 	                if($_SESSION['MViewPReq'] == 1)
