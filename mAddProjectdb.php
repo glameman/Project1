@@ -19,7 +19,7 @@
 
 	// escape variables for security
 	$projname = $_POST['projname'];
-	$status = $_POST['status'];
+	$status = "Started";
 	$startdate = $_POST['startdate'];
 	$enddate = $_POST['enddate'];
 	$managerID = $_SESSION['UID'];
