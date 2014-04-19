@@ -58,11 +58,11 @@ if($_SESSION['Type'] != 'Worker')
 						
 						<select class="selectpicker" name="type">
 						<option>Started</option>
-						<option>In Progress</option>
-						<option>Incompleted</option>
+						<option>Ongoing</option>
+						<option>Complete</option>
 						</select>
 		            
-						<input type="submit" value="Updated Status" />
+						<input type="submit" value="Updated Requirement" />
 						</br><br>
 						</div>
 						</form>
@@ -77,8 +77,8 @@ if($_SESSION['Type'] != 'Worker')
 
 						////////////////////////Requirements
 						$RID = $_POST['ReqID'];
-						//$_SESSION['RID'] = $RID;
-						$query = mysql_query("SELECT * 
+						$_SESSION['RID'] = $RID;
+						$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, P.ProjectID, P.ProjectName
 											  FROM requirements R, project P
 											  WHERE ReqID = $RID and R.PID = P.ProjectID");
 
