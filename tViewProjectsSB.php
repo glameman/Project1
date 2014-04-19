@@ -28,7 +28,7 @@ if($_SESSION['Type'] != 'Tenant')
 		<div id="wrapper">
 		
 			<!-- Sidebar -->
-	        <div id="sidebar-wrapper">
+	        <div id="sidebar-wrapper" style="background-color: #000000">
 	            <ul class="sidebar-nav">
 	                <li class="sidebar-brand"><a href="tenant.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
@@ -52,66 +52,77 @@ if($_SESSION['Type'] != 'Tenant')
 			<div class="page-content inset">
 				<h1 align="center">Organization Projects</h1>
 
-							<?php
+					<?php
 
-								$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
-								mysql_select_db("my_db") or die("Could not find database");
+						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
+						mysql_select_db("my_db") or die("Could not find database");
 
-								$tid = $_SESSION['TID'];
+						$tid = $_SESSION['TID'];
 
-								$query = mysql_query("SELECT P.ProjectID, P.ProjectName, P.Status, P.StartDate, P.ExpectedEndDate, U.FirstName, U.LastName 
-													  FROM users U, project P 
-													  WHERE  U.TID = $tid and P.MID = U.UID");
+						$query = mysql_query("SELECT P.MID, P.ProjectID, P.ProjectName, P.Status, P.StartDate, P.ExpectedEndDate, U.FirstName, U.LastName 
+											  FROM users U, project P 
+											  WHERE  U.TID = $tid and P.MID = U.UID
+											  ORDER BY U.LastName, P.ProjectID");
 
-								$numrows = mysql_num_rows($query);
-								// Check connection
+						$numrows = mysql_num_rows($query);
+						// Check connection
+						
+						echo "<br><br>";
+                    
+                    while($row = mysql_fetch_assoc($query))
+					{
+	                    echo "<div class='panel panel-default'>
+							<!-- Default panel contents -->
+							<div class='panel-heading'>
+							  	<table width='100%'><tr>
+							  	<td><b>Project ID</b></td>
+							  	<td><b>Project Name</b></td>
+							  	<td><b>Project Manager</b></td>
+							  	<td><b>Status</b></td>
+							  	<td><b>Start Date</b></td>
+							  	<td><b>Expected End Date</b></td>
+							  	</tr>
 
-								echo "<br><br>";
+							  	<tr>
+							  	<td>" . $row['ProjectID'] . "</td>
+								<td>" . $row['ProjectName'] . "</td>
+								<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>
+								<td>" . $row['Status'] . "</td>
+								<td>" . $row['StartDate'] . "</td>
+								<td>" . $row['ExpectedEndDate'] . "</td>
+								</tr></table>
+							</div>
+							<div class='panel-body'>
+								<b>Employees Involved: </b>";
 
-								echo "<table class='table table-striped' width='80%' align='center'>
-									<tr>
-									<th>ProjectID</th>
-									<th>ProjectName</th>
-									<th>Status</th>
-									<th>StartDate</th>
-									<th>ExpectedEndDate</th>
-									<th>MFirstName</th>
-									<th>MLastName</th>
-									</tr>";
+							$PID = $row['ProjectID'];
+							$query2 = mysql_query("SELECT U.UID, U.FirstName, U.LastName 
+												  FROM users U, requirements R 
+												  WHERE  R.PID = $PID and R.UID = U.UID");
 
-								while($row = mysql_fetch_assoc($query))
-								{
-									echo "<tr>";
-									echo "<td>" . $row['ProjectID'] . "</td>";
-									echo "<td>" . $row['ProjectName'] . "</td>";
-									echo "<td>" . $row['Status'] . "</td>";
-									echo "<td>" . $row['StartDate'] . "</td>";
-									echo "<td>" . $row['ExpectedEndDate'] . "</td>";
-									echo "<td>" . $row['FirstName'] . "</td>";
-									echo "<td>" . $row['LastName'] . "</td>";
-									echo "</tr>";
+							$numrows1 = mysql_num_rows($query2);
 
-									$PID = $row['ProjectID'];
-					  				$query2 = mysql_query("SELECT U.UID, U.FirstName, U.LastName 
-											 			   FROM users U, requirements R 
-														   WHERE  R.PID = $PID and R.UID = U.UID");
-					  				$numrows2 = mysql_num_rows($query2);
-					  				$count1 = 1;
+							if($numrows1 == 0)
+								echo "No employees assigned to this project.";
 
-					  				while($row2 = mysql_fetch_assoc($query2))
-								    {
-								    	if($count1 < $numrows2)
-								    		echo "<tr><td colspan='7' align='left'>" . $row2['FirstName'] . " " . $row2['LastName'] . " " . $row['ProjectID'] . ", </td>";
-								    	else
-								    		echo "<tr><td colspan='7'>" . $row2['FirstName'] . " " . $row2['LastName'] . " " . "</td>";
-								    	echo "</tr>";
-									}
-								}
+							$count = 1;
+							while($row2 = mysql_fetch_assoc($query2))
+							{
+								if($count < $numrows1)
+									echo $row2['FirstName'] . " " . $row2['LastName'] . ", ";
+								else
+									echo $row2['FirstName'] . " " . $row2['LastName'];
+								$count = $count + 1;
+							}
+							$count = 1;
 
-								echo "</table>";
+							echo "
+							</div>
+							</div>";
+					}
 
-								mysql_close($con);
-								?>
+					mysql_close();
+				?>
 
 			</div>
 		</div>
