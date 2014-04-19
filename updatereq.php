@@ -45,7 +45,7 @@ if($_SESSION['Type'] != 'Worker')
 				<h1 align="center">Requirement Update</h1>
 				
 				
-				<form tag="Update Status" action="updatePS.php" method="post">
+				<form tag="Update Status" action="updateRS.php" method="post">
 						<div align="center">
 						<?php if(isset($_GET['msg']))
 						echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
@@ -76,13 +76,13 @@ if($_SESSION['Type'] != 'Worker')
 						mysql_select_db("my_db") or die("Could not find database");
 
 						////////////////////////Requirements
-						$RID = $_POST ['ReqID']
+						$RID = $_POST['ReqID'];
 						//$_SESSION['RID'] = $RID;
 						$query = mysql_query("SELECT * 
-											  FROM Project  
-											  WHERE ReqID = $RID");
+											  FROM requirements R, project P
+											  WHERE ReqID = $RID and R.PID = P.ProjectID");
 
-						$numrows = mysql_num_rows($query);
+						
 						// Check connection
 						
 						//echo "Number of rows: " . $numrows;
