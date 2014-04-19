@@ -50,40 +50,44 @@ if($_SESSION['Type'] != 'Tenant')
 	        </div>
 		
 			<div class="page-content inset">
-				<h1 align="center">Organization Requirements</h1>
-
-				 <form tag="Change Status" action="updatereq.php" method="post">
+				<h1 align="center">Update Requirement</h1>
+				
+				
+				<form tag="Update Status" action="updateRS.php" method="post">
 						<div align="center">
-					    	<?php if(isset($_GET['msg']))
-						  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-						  	?>
-						  	<?php if(isset($_GET['maxmsg']))
-						  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-						  	?>
-						    Enter Requirement ID: <input type="text" name="ReqID" />
-			 				
-					            
-					            <input type="submit" value="Select Requirement" />
-						  	</br><br>
+						<?php if(isset($_GET['msg']))
+						echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+						?>
+						<?php if(isset($_GET['maxmsg']))
+						echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+						?>
+						Status: 
+						
+						
+						<select class="selectpicker" name="type">
+						<option>Started</option>
+						<option>Ongoing</option>
+						<option>Completed</option>
+						</select>
+		            
+						<input type="submit" value="Update Requirement" />
+						</br><br>
 						</div>
-					</form>
-				
-				
-				
-				
-				
-					<?php
-
+						</form>
+						
+						
+						<?php
+						echo $_POST ['ReqID'];
 						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 						mysql_select_db("my_db") or die("Could not find database");
 
-						$tid = $_SESSION['TID'];
+						$RID = $_POST['ReqID'];
 
 						$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, R.Type, R.TimeRequired, U.FirstName, U.LastName 
 											  FROM users U, requirements R 
-											  WHERE U.TID = $tid and R.UID = U.UID");
+											  WHERE ReqID = $RID");
 
-						$numrows = mysql_num_rows($query);
+						//$numrows = mysql_num_rows($query);
 						// Check connection
 						
 						//echo "Number of rows: " . $numrows;
