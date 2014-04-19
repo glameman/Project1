@@ -25,7 +25,7 @@
 	$managerID = $_SESSION['UID'];
 	$status = "Started";
 
-	mysql_query("INSERT INTO $table(PID, Req_Description, MID, Type, TimeRequired, Status) VALUES ('$projectID', '$reqdescription', '$managerID', '$type', '$timerequired', '$status')") or die(mysql_error());
+	mysql_query("INSERT INTO $table(PID, Req_Description, UID, Type, TimeRequired, Status) VALUES ('$projectID', '$reqdescription', '$managerID', '$type', '$timerequired', '$status')") or die(mysql_error());
 
 	mysql_close($conn);
 
