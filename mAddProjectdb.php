@@ -29,5 +29,5 @@
 	mysql_close($conn);
 
 	$msg = "Project Successfully Added";
-	header("Location:Manager.php?msg=$msg");
+	header("Location:mViewProjects.php?msg=$msg");
 ?>
