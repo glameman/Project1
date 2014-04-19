@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -12,51 +18,54 @@
         <link href="css/simple-sidebar.css" rel="stylesheet">
 
     </head>
-  <body bgcolor="#DCDCDC">
-    <header>
-        <nav class="navbar navbar-default" role="navigation">
-          <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.php">TAG Project Management Tool</a>
+    <body style="background-color:#F5F5DC;">
+        <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"><a href="manager.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
+                    </li>
+                    <?php
+                    if($_SESSION['MViewProj'] == 1)
+                        echo "<li><a href='mViewProjects.php'>View Projects</a></li>";
+                    ?>
+                    <?php
+                    if($_SESSION['MAddProj'] == 1)
+                        echo "<li><a href='mAddProject.php'>Create New Project</a></li>";
+                    ?>
+                    <?php
+                    if($_SESSION['MViewPReq'] == 1)
+                        echo "<li><a href='#'>View Project Requirements</a></li>";
+                    ?>
+                    <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
+                    </li>
+                </ul>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="manager.php">Home Page</a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>
-    </header>
-    <H1 ALIGN="CENTER">Create New Project</H1>
-    <HR WIDTH="36%" SIZE="5" NOSHADE="NOSHADE">
-        <form tag="Create Logon" action="mAddProjectdb.php" method="post">
-            <div align="center">
-                <?php if(isset($_GET['msg']))
-                    echo "<font color='red'><br>" . $_GET['msg'] . "</font>";
-                ?>
-                Project Name*: <input type="text" name="projname" />
-                </br></br>
-                Start Date (YYYY-MM-DD): <input type="text" name="startdate" />
-                </br><br>
-                Expected End Date (YYYY-MM-DD): <input type="text" name="enddate" />
-                </br><br>
-                    <input type="submit" value="Submit" />
-                    </br><br>
-                <p>Note: Please make sure your details are correct before submitting and that all fields marked with * are completed!.</p>
-            </div>
-        </form>
- 
+    <div id="wrapper">
+        <div class="page-content inset">
 
-    
- 
+        <H1 ALIGN="CENTER">Create New Project</H1>
+        <HR WIDTH="36%" SIZE="5" NOSHADE="NOSHADE">
+            <form tag="Create Logon" action="mAddProjectdb.php" method="post">
+                <div align="center">
+                    <?php if(isset($_GET['msg']))
+                        echo "<font color='red'><br>" . $_GET['msg'] . "</font>";
+                    ?>
+                    Project Name*: <input type="text" name="projname" />
+                    </br></br>
+                    Start Date (YYYY-MM-DD): <input type="text" name="startdate" />
+                    </br><br>
+                    Expected End Date (YYYY-MM-DD): <input type="text" name="enddate" />
+                    </br><br>
+                        <input type="submit" value="Submit" />
+                        </br><br>
+                    <p>Note: Please make sure your details are correct before submitting and that all fields marked with * are completed!.</p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
         <script src="js/bootstrap.min.js"></script>
-  </body>
+    </body>
 </html>
