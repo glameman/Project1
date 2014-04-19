@@ -53,14 +53,26 @@ if($_SESSION['Type'] != 'Worker')
 					<div align='center'>";
 				    	if(isset($_GET['msg']))
 					  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-					  	
+
 					  	if(isset($_GET['maxmsg']))
 					  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-					    
+
 					    echo "
-					    Enter Requirement ID: <input type='text' name='ReqID' />
-		 				
-				            
+					    <select name='requirement'><option value=''> --Select Requirement ID-- </option>";
+                                    $con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
+                                    mysql_select_db("my_db") or die("Could not find database");
+                                    
+                                    $workerID = $_SESSION['UID'];
+                                    $query= mysql_query("SELECT ReqID FROM requirements WHERE UID = $workerID");
+
+                                    while($row = mysql_fetch_assoc($query))
+                                    {
+                                        echo "<option value='" . $row['ReqID'] . "'>" . $row['ReqID'] . "</OPTION>";
+                                    }
+                                    mysql_close();
+
+                                    echo"
+                            </select>  
 				            <input type='submit' value='Edit Status' />
 					  	</br><br>
 					</div>
@@ -84,7 +96,7 @@ if($_SESSION['Type'] != 'Worker')
 
 						$numrows = mysql_num_rows($query);
 						// Check connection
-						
+
 						//echo "Number of rows: " . $numrows;
 						echo "<br><br>";
 
@@ -112,7 +124,7 @@ if($_SESSION['Type'] != 'Worker')
 							echo "<td>" . $row['ProjectName'] . "</td>";
 							echo "</tr>";
 						}
-						
+
 						echo "</table>";
 
 						mysql_close($con);
