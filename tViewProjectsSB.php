@@ -103,7 +103,7 @@ if($_SESSION['Type'] != 'Tenant')
 								    	if($count1 < $numrows2)
 								    		echo "<tr><td colspan='7' align='left'>" . $row2['FirstName'] . " " . $row2['LastName'] . " " . $row['ProjectID'] . ", </td>";
 								    	else
-								    		echo "<tr><td colspan='7'>" . $row2['FirstName'] . " " . $row2['LastName'] . " " . $row['ProjectID'] . "</td>";
+								    		echo "<tr><td colspan='7'>" . $row2['FirstName'] . " " . $row2['LastName'] . " " . "</td>";
 								    	echo "</tr>";
 									}
 								}
