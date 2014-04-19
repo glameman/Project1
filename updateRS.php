@@ -1,4 +1,4 @@
--<?php
+<?php
 	
 	ob_start();
 
@@ -40,7 +40,7 @@
 		mysql_close($conn);
 
 
-		header("Location:wViewRequirements.php")
+		header("Location:wViewRequirements.php");
 
 		
 ?>
