@@ -44,6 +44,7 @@ if($_SESSION['Type'] != 'Worker')
 			<div class="page-content inset">
 				<h1 align="center">Requirement Update</h1>
 				
+				<br><br>
 				
 				<form tag="Update Status" action="updateRS.php" method="post">
 						<div align="center">
@@ -62,7 +63,7 @@ if($_SESSION['Type'] != 'Worker')
 						<option>Complete</option>
 						</select>
 		            
-						<input type="submit" value="Updated Requirement" />
+						<input type="submit" value="Update Status" />
 						</br><br>
 						</div>
 						</form>
@@ -83,9 +84,6 @@ if($_SESSION['Type'] != 'Worker')
 											  WHERE ReqID = $RID and R.PID = P.ProjectID");
 
 						
-						// Check connection
-						
-						//echo "Number of rows: " . $numrows;
 						echo "<br><br>";
 
 						echo "<table class='table table-striped' width='80%' align='center'>
@@ -102,11 +100,6 @@ if($_SESSION['Type'] != 'Worker')
 							echo "<tr>";
 							echo "<td>" . $row['ReqID'] . "</td>";
 							echo "<td>" . $row['Req_Description'] . "</td>";
-							/*echo "<td width='200'>" . "<select class='selectpicker' name='type' default='In Progress'>
-									    <option>Started</option>
-									    <option>In Progress</option>
-									    <option>Completed</option>
-									  </select>". $row['Status'] . " <form><input type='Submit' value='update'><form></td>";*/
 							echo "<td>" . $row['Status'] . "</td>";
 							echo "<td>" . $row['ProjectID'] . "</td>";
 							echo "<td>" . $row['ProjectName'] . "</td>";

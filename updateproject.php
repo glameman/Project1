@@ -62,7 +62,7 @@ session_start();
 						<select class="selectpicker" name="type">
 						<option>Started</option>
 						<option>In Progress</option>
-						<option>Incompleted</option>
+						<option>Completed</option>
 						</select>
 		            
 						<input type="submit" value="Updated Status" />
