@@ -42,62 +42,48 @@ if($_SESSION['Type'] != 'Worker')
 	        </div>
 
 			<div class="page-content inset">
-				<h1 align="center">My Requirements</h1>			
-					
-
-				<?php
-				if($_SESSION['WChangeRStatus'] == 1)
-				{
-				echo "	<br><br>
-				 <form tag='Change Status' action='updatereq.php' method='post'>
-					<div align='center'>";
-				    	if(isset($_GET['msg']))
-					  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-
-					  	if(isset($_GET['maxmsg']))
-					  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-
-					    echo "
-					    <select name='requirement'><option value=''> --Select Requirement ID-- </option>";
-                                    $con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
-                                    mysql_select_db("my_db") or die("Could not find database");
-                                    
-                                    $workerID = $_SESSION['UID'];
-                                    $query= mysql_query("SELECT ReqID FROM requirements WHERE UID = $workerID");
-
-                                    while($row = mysql_fetch_assoc($query))
-                                    {
-                                        echo "<option value='" . $row['ReqID'] . "'>" . $row['ReqID'] . "</OPTION>";
-                                    }
-                                    mysql_close();
-
-                                    echo"
-                            </select>  
-				            <input type='submit' value='Edit Status' />
-					  	</br><br>
-					</div>
-				</form>";
-				}
-				?>
+				<h1 align="center">Requirement Update</h1>
 				
-					
-					
-					
-					<?php
+				<br><br>
+				
+				<form tag="Update Status" action="updateRS.php" method="post">
+						<div align="center">
+						<?php if(isset($_GET['msg']))
+						echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+						?>
+						<?php if(isset($_GET['maxmsg']))
+						echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+						?>
+						Status: 
+						
+						
+						<select class="selectpicker" name="type">
+						<option>Started</option>
+						<option>Ongoing</option>
+						<option>Complete</option>
+						</select>
+		            
+						<input type="submit" value="Update Status" />
+						</br><br>
+						</div>
+						</form>
+						
+						
+				
+				
+				<?php
 
 						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 						mysql_select_db("my_db") or die("Could not find database");
 
 						////////////////////////Requirements
-						$userID = $_SESSION['UID'];
-						$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, P.ProjectID, P.ProjectName 
-											  FROM project P, users U, requirements R 
-											  WHERE U.UID = $userID and R.UID = U.UID and R.PID = P.ProjectID");
+						$RID = $_POST['requirement'];
+						$_SESSION['RID'] = $RID;
+						$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, P.ProjectID, P.ProjectName
+											  FROM requirements R, project P
+											  WHERE ReqID = $RID and R.PID = P.ProjectID");
 
-						$numrows = mysql_num_rows($query);
-						// Check connection
-
-						//echo "Number of rows: " . $numrows;
+						
 						echo "<br><br>";
 
 						echo "<table class='table table-striped' width='80%' align='center'>
@@ -114,17 +100,12 @@ if($_SESSION['Type'] != 'Worker')
 							echo "<tr>";
 							echo "<td>" . $row['ReqID'] . "</td>";
 							echo "<td>" . $row['Req_Description'] . "</td>";
-							/*echo "<td width='200'>" . "<select class='selectpicker' name='type' default='In Progress'>
-									    <option>Started</option>
-									    <option>In Progress</option>
-									    <option>Completed</option>
-									  </select>". $row['Status'] . " <form><input type='Submit' value='update'><form></td>";*/
 							echo "<td>" . $row['Status'] . "</td>";
 							echo "<td>" . $row['ProjectID'] . "</td>";
 							echo "<td>" . $row['ProjectName'] . "</td>";
 							echo "</tr>";
 						}
-
+						
 						echo "</table>";
 
 						mysql_close($con);
