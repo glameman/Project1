@@ -44,24 +44,24 @@ session_start();
 	            </ul>
 	        </div>
 			<div class="page-content inset">
-				<h1 align="center">My Projects</h1>
+				<h1 align="center">My Projects</h1><br>
 
 				
 					 <form tag="Change Status" action="updateproject.php" method="post">
 						<div align="center">
-		    	<?php if(isset($_GET['msg']))
-			  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-			  	?>
-			  	<?php if(isset($_GET['maxmsg']))
-			  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-			  	?>
-			    ProjectID: <input type="text" name="ProjectID" />
- 				
-		            
-		            <input type="submit" value="Edit Project" />
-			  	</br><br>
-				</div>
-				</form>
+					    	<?php if(isset($_GET['msg']))
+						  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+						  	?>
+						  	<?php if(isset($_GET['maxmsg']))
+						  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+						  	?>
+						    Enter Project ID: <input type="text" name="ProjectID" />
+			 				
+					            
+					            <input type="submit" value="Select Project" />
+						  	</br><br>
+						</div>
+					</form>
 				
 				
 					<?php

@@ -46,7 +46,7 @@ session_start();
 			<div class="page-content inset">
 				<h1 align="center">Project Update</h1>
 				
-				<form tag="Update Status" action="updateproject.php" method="post">
+				<form tag="Update Status" action="updatePS.php" method="post">
 						<div align="center">
 						<?php if(isset($_GET['msg']))
 						echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
@@ -83,8 +83,9 @@ session_start();
 						echo "<br><br>";
 
 						////////////////////////Projects
-						$StatusUp = $_POST['Updated_Status'];
+						//$StatusUp = $_POST['Updated_Status'];
 						$PID = $_POST ['ProjectID'];
+						$_SESSION['PID'] = $PID;
 						$query = mysql_query("SELECT *
 											  FROM project 
 											  WHERE ProjectID = $PID");
