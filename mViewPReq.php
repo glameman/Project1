@@ -44,42 +44,9 @@ session_start();
 	            </ul>
 	        </div>
 			<div class="page-content inset">
-				<h1 align="center">My Projects</h1><br><br>
+				<h1 align="center">Project Requirements</h1><br><br>
 
-				<table align="center" width="100%"><tr><td>
-					 <form tag="Change Status" action="updateproject.php" method="post">
-						<div align="center">
-					    	<?php if(isset($_GET['msg']))
-						  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-						  	?>
-						  	<?php if(isset($_GET['maxmsg']))
-						  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-						  	?>
-						    Enter Project ID: <input type="text" name="ProjectID" />
-			 				
-					            
-					            <input type="submit" value="Edit Project Status" />
-						  	</br><br>
-						</div>
-					</form>
-				</td>
-				<td>
-					<form tag="View Proj Req" action="mViewPReq.php" method="post">
-						<div align="center">
-					    	<?php if(isset($_GET['msg']))
-						  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-						  	?>
-						  	<?php if(isset($_GET['maxmsg']))
-						  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-						  	?>
-						    Enter Project ID: <input type="text" name="ProjectID" />
-			 				
-					            
-					            <input type="submit" value="View Project Requirements" />
-						  	</br><br>
-						</div>
-					</form>
-				</td></tr></table>
+				
 				
 				
 					<?php
@@ -90,15 +57,13 @@ session_start();
 						// Check connection
 						
 						//echo "Number of rows: " . $numrows;
-						echo "<br><br>";
 
 						////////////////////////Projects
-						$userID = $_SESSION['UID'];
+						$PID = $_POST['ProjectID'];
 						$query = mysql_query("SELECT * 
-											  FROM project 
-											  WHERE MID = $userID");
+											  FROM requirements 
+											  WHERE PID = $PID");
 
-						$numrows = mysql_num_rows($query);
 						// Check connection
 						
 						
@@ -107,21 +72,25 @@ session_start();
 						
 						echo "<table class='table table-striped' width='80%' align='center'>
 							<tr>
-							<th> Project ID </th>
-							<th> Project Name </th>
+							<th> Requirement ID </th>
+							<th> Proejct ID </th>
+							<th> Requirement Description </th>
+							<th> Type </th>
+							<th> Time Required </th>
+							<th> UID </th>
 							<th> Status </th>
-							<th> Start Date </th>
-							<th> End Date </th>
 							</tr>";
 
 						while($row = mysql_fetch_assoc($query))
 						{
 							echo "<tr>";
-							echo "<td>" . $row['ProjectID'] . "</td>";
-							echo "<td>" . $row['ProjectName'] . "</td>";
+							echo "<td>" . $row['ReqID'] . "</td>";
+							echo "<td>" . $row['PID'] . "</td>";
+							echo "<td>" . $row['Req_Description'] . "</td>";
+							echo "<td>" . $row['Type'] . "</td>";
+							echo "<td>" . $row['TimeRequired'] . "</td>";
+							echo "<td>" . $row['UID'] . "</td>";
 							echo "<td>" . $row['Status'] . "</td>";
-							echo "<td>" . $row['StartDate'] . "</td>";
-							echo "<td>" . $row['ExpectedEndDate'] . "</td>";
 							echo "</tr>";
 						}
 						
