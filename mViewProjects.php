@@ -28,17 +28,17 @@ session_start();
 	                <li class="sidebar-brand"><a href="manager.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
 	                <?php
-	                if($_SESSION['MViewProj'] == 1)
-	                	echo "<li><a href='mViewProjects.php'>View Projects</a></li>";
-	                ?>
-	                <?php
-	                if($_SESSION['MAddProj'] == 1)
-	                	echo "<li><a href='mAddProject.php'>Create New Project</a></li>";
-	                ?>
-	                <?php
-	                if($_SESSION['MViewPReq'] == 1)
-	                	echo "<li><a href='#'>View Project Requirements</a></li>";
-	                ?>
+                	 if($_SESSION['MViewProj'] == 1)
+                        echo "<li><a href='mViewProjects.php'>View Projects</a></li>";
+                	 ?>
+                    	<?php
+                    	if($_SESSION['MAddProj'] == 1)
+                	echo "<li><a href='mAddProject.php'>Add Project</a></li>";
+                    	?>
+                    	<?php
+                    	if($_SESSION['MAddProj'] == 1)
+                        echo "<li><a href='mAddRequirements.php'>Add Project Requirement</a></li>";
+                    	?>
 	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
 	                </li>
 	            </ul>
