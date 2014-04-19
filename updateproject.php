@@ -86,7 +86,7 @@ session_start();
 
 						////////////////////////Projects
 						//$StatusUp = $_POST['Updated_Status'];
-						$PID = $_POST ['ProjectID'];
+						$PID = $_POST ['project'];
 						$_SESSION['PID'] = $PID;
 						$query = mysql_query("SELECT *
 											  FROM project 

@@ -60,7 +60,24 @@ session_start();
 								  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
 
 								  	echo "
-								    Enter Project ID: <input type='text' name='ProjectID' />
+
+								    <select name='project'><option value=''> --Select Project ID-- </option>";
+                                
+                                    $con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
+                                    mysql_select_db("my_db") or die("Could not find database");
+                                    
+                                    $MID = $_SESSION['UID'];
+                                    $query= mysql_query("SELECT ProjectID FROM project WHERE MID = $MID");
+
+                                    while($row = mysql_fetch_assoc($query))
+                                    {
+                                        echo "<option value='" . $row['ProjectID'] . "'>" . $row['ProjectID'] . "</OPTION>";
+                                    }
+                                    mysql_close();
+                                
+
+                                	echo "
+                            		</select>
 					 				
 							            
 							            <input type='submit' value='Edit Project Status' />
