@@ -30,11 +30,11 @@ session_start();
                     ?>
                     <?php
                     if($_SESSION['MAddProj'] == 1)
-                        echo "<li><a href='mAddProject.php'>Create New Project</a></li>";
+                        echo "<li><a href='mAddProject.php'>Add Project</a></li>";
                     ?>
                     <?php
-                    if($_SESSION['MViewPReq'] == 1)
-                        echo "<li><a href='#'>View Project Requirements</a></li>";
+                    if($_SESSION['MAddProj'] == 1)
+                        echo "<li><a href='mAddRequirements.php'>Add Project Requirement</a></li>";
                     ?>
                     <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
                     </li>
