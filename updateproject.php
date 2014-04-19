@@ -63,7 +63,7 @@ session_start();
 						<option>Incompleted</option>
 						</select>
 		            
-						<input type="submit" value="Updated_Status" />
+						<input type="submit" value="Updated Status" />
 						</br><br>
 						</div>
 						</form>
@@ -85,14 +85,12 @@ session_start();
 						////////////////////////Projects
 						$StatusUp = $_POST['Updated_Status'];
 						$PID = $_POST ['ProjectID'];
-						$query = mysql_query("UPDATE Status SET Status = Updated_Status
+						$query = mysql_query("SELECT *
 											  FROM project 
 											  WHERE ProjectID = $PID");
 
 				//		$numrows = mysql_num_rows($query);
 						// Check connection
-						
-						
 						
  
 						
@@ -117,14 +115,29 @@ session_start();
 						}
 						
 						
-						
 						echo "</table>";
-						
-						
-						
 						
 
 						mysql_close($con);
 					?>
 				
+					</div>
+		</div>
+		
+		<!-- JavaScript -->
+	    <script src="js/jquery-1.10.2.js"></script>
+	    <script src="js/bootstrap.js"></script>
+
+	    <!-- Custom JavaScript for the Menu Toggle -->
+	    <script>
+	    $("#menu-toggle").click(function(e) {
+	        e.preventDefault();
+	        $("#wrapper").toggleClass("active");
+	    });
+	    </script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
 				
