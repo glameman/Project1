@@ -30,5 +30,5 @@
 	mysql_close($conn);
 
 	$msg = "Requirement Successfully Added";
-	header("Location:Manager.php?msg=$msg");
+	header("Location:mViewPReq.php?msg=$msg");
 ?>
