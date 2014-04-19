@@ -44,6 +44,27 @@ if($_SESSION['Type'] != 'Worker')
 			<div class="page-content inset">
 				<h1 align="center">My Requirements</h1>
 
+					
+					
+				 <form tag="Change Status" action="updatereq.php" method="post">
+						<div align="center">
+					    	<?php if(isset($_GET['msg']))
+						  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+						  	?>
+						  	<?php if(isset($_GET['maxmsg']))
+						  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+						  	?>
+						    Enter Requirement ID: <input type="text" name="ReqID" />
+			 				
+					            
+					            <input type="submit" value="Select Requirement" />
+						  	</br><br>
+						</div>
+					</form>
+				
+					
+					
+					
 					<?php
 
 						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");

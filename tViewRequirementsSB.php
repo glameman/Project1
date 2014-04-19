@@ -52,21 +52,7 @@ if($_SESSION['Type'] != 'Tenant')
 			<div class="page-content inset">
 				<h1 align="center">Organization Requirements</h1>
 
-				 <form tag="Change Status" action="updatereq.php" method="post">
-						<div align="center">
-					    	<?php if(isset($_GET['msg']))
-						  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-						  	?>
-						  	<?php if(isset($_GET['maxmsg']))
-						  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-						  	?>
-						    Enter Requirement ID: <input type="text" name="ReqID" />
-			 				
-					            
-					            <input type="submit" value="Select Requirement" />
-						  	</br><br>
-						</div>
-					</form>
+				
 				
 				
 				

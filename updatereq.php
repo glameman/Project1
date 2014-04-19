@@ -4,7 +4,7 @@ ob_start();
 
 session_start();
 
-if($_SESSION['Type'] != 'Tenant')
+if($_SESSION['Type'] != 'Worker')
 {
 	header("location: nopermission.php");
 }
@@ -30,30 +30,22 @@ if($_SESSION['Type'] != 'Tenant')
 			<!-- Sidebar -->
 	        <div id="sidebar-wrapper">
 	            <ul class="sidebar-nav">
-	                <li class="sidebar-brand"><a href="tenant.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
+	                <li class="sidebar-brand"><a href="worker.php"><font color="white">Welcome, <?php echo $_SESSION['FirstName']; ?></font></a>
 	                </li>
 	                <?php
-	                if($_SESSION['TViewProj'] == 1)
-	                	echo "<li><a href='tViewProjectsSB.php'>View Projects</a></li>";
-	                ?>
-	                <?php
-	                if($_SESSION['TViewReq'] == 1)
-	                	echo "<li><a href='tViewRequirementsSB.php'>View Requirements</a></li>";
-	                ?>
-	                <?php
-	                if($_SESSION['TAddUsers'] == 1)
-	                	echo "<li><a href='tAddUsersSB.php'>Add Users</a></li>";
+	                if($_SESSION['WViewReq'] == 1)
+	                	echo "<li><a href='wViewRequirements.php'>View My Requirements</a></li>";
 	                ?>
 	                <li><a href="logout.php"><div class="glyphicon glyphicon-off"></div> Sign Out</a>
 	                </li>
 	            </ul>
 	        </div>
-		
+
 			<div class="page-content inset">
-				<h1 align="center">Update Requirement</h1>
+				<h1 align="center">Requirement Update</h1>
 				
 				
-				<form tag="Update Status" action="updateRS.php" method="post">
+				<form tag="Update Status" action="updatePS.php" method="post">
 						<div align="center">
 						<?php if(isset($_GET['msg']))
 						echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
@@ -66,28 +58,31 @@ if($_SESSION['Type'] != 'Tenant')
 						
 						<select class="selectpicker" name="type">
 						<option>Started</option>
-						<option>Ongoing</option>
-						<option>Completed</option>
+						<option>In Progress</option>
+						<option>Incompleted</option>
 						</select>
 		            
-						<input type="submit" value="Update Requirement" />
+						<input type="submit" value="Updated Status" />
 						</br><br>
 						</div>
 						</form>
 						
 						
-						<?php
-						echo $_POST ['ReqID'];
+				
+				
+				<?php
+
 						$con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
 						mysql_select_db("my_db") or die("Could not find database");
 
-						$RID = $_POST['ReqID'];
-
-						$query = mysql_query("SELECT R.ReqID, R.Req_Description, R.Status, R.Type, R.TimeRequired, U.FirstName, U.LastName 
-											  FROM users U, requirements R 
+						////////////////////////Requirements
+						$RID = $_POST ['ReqID']
+						//$_SESSION['RID'] = $RID;
+						$query = mysql_query("SELECT * 
+											  FROM Project  
 											  WHERE ReqID = $RID");
 
-						//$numrows = mysql_num_rows($query);
+						$numrows = mysql_num_rows($query);
 						// Check connection
 						
 						//echo "Number of rows: " . $numrows;
@@ -95,12 +90,11 @@ if($_SESSION['Type'] != 'Tenant')
 
 						echo "<table class='table table-striped' width='80%' align='center'>
 							<tr>
-							<th>ReqID</th>
-							<th>ReqDescription</th>
-							<th>Status</th>
-							<th>Type</th>
-							<th>TimeRequired</th>
-							<th>Assigned to</th>
+							<th> Req ID </th>
+							<th> Req_Description </th>
+							<th> Req Status </th>
+							<th> Project ID </th>
+							<th> Project Name </th>
 							</tr>";
 
 						while($row = mysql_fetch_assoc($query))
@@ -108,10 +102,14 @@ if($_SESSION['Type'] != 'Tenant')
 							echo "<tr>";
 							echo "<td>" . $row['ReqID'] . "</td>";
 							echo "<td>" . $row['Req_Description'] . "</td>";
+							/*echo "<td width='200'>" . "<select class='selectpicker' name='type' default='In Progress'>
+									    <option>Started</option>
+									    <option>In Progress</option>
+									    <option>Completed</option>
+									  </select>". $row['Status'] . " <form><input type='Submit' value='update'><form></td>";*/
 							echo "<td>" . $row['Status'] . "</td>";
-							echo "<td>" . $row['Type'] . "</td>";
-							echo "<td>" . $row['TimeRequired'] . "</td>";
-							echo "<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
+							echo "<td>" . $row['ProjectID'] . "</td>";
+							echo "<td>" . $row['ProjectName'] . "</td>";
 							echo "</tr>";
 						}
 						
@@ -119,10 +117,11 @@ if($_SESSION['Type'] != 'Tenant')
 
 						mysql_close($con);
 						?>
-				
+
+
 			</div>
 		</div>
-
+		
 		<!-- JavaScript -->
 	    <script src="js/jquery-1.10.2.js"></script>
 	    <script src="js/bootstrap.js"></script>
@@ -134,7 +133,7 @@ if($_SESSION['Type'] != 'Tenant')
 	        $("#wrapper").toggleClass("active");
 	    });
 	    </script>
-		
+
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="js/bootstrap.min.js"></script>
 	</body>
