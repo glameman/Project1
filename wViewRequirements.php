@@ -44,7 +44,7 @@ if($_SESSION['Type'] != 'Worker')
 			<div class="page-content inset">
 				<h1 align="center">My Requirements</h1>
 
-					
+				<br><br>			
 					
 				 <form tag="Change Status" action="updatereq.php" method="post">
 						<div align="center">
@@ -57,7 +57,7 @@ if($_SESSION['Type'] != 'Worker')
 						    Enter Requirement ID: <input type="text" name="ReqID" />
 			 				
 					            
-					            <input type="submit" value="Select Requirement" />
+					            <input type="submit" value="Edit Status" />
 						  	</br><br>
 						</div>
 					</form>
