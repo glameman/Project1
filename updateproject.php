@@ -45,6 +45,8 @@ session_start();
 	        </div>
 			<div class="page-content inset">
 				<h1 align="center">Project Update</h1>
+
+				<br><br>
 				
 				<form tag="Update Status" action="updatePS.php" method="post">
 						<div align="center">
