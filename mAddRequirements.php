@@ -48,7 +48,7 @@ session_start();
                     <form tag="Create Logon" action="mAddRequirementsdb.php" method="post">
                         <div align="center">
                             <?php if(isset($_GET['msg']))
-                                echo "<font color='red'><br>" . $_GET['msg'] . "</font>";
+                                echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
                             ?>
                             Project ID*: <input type="int" name="PID"/>
                             </br></br>

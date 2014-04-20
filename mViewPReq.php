@@ -60,6 +60,9 @@ session_start();
 
 						////////////////////////Projects
 						$PID = $_POST['ProjectID'];
+
+
+
 						$query = mysql_query("SELECT * 
 											  FROM requirements 
 											  WHERE PID = $PID");

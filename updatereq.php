@@ -8,6 +8,8 @@ if($_SESSION['Type'] != 'Worker')
 {
 	header("location: nopermission.php");
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -45,14 +47,11 @@ if($_SESSION['Type'] != 'Worker')
 				<h1 align="center">Requirement Update</h1>
 				
 				<br><br>
-				
+
 				<form tag="Update Status" action="updateRS.php" method="post">
 						<div align="center">
 						<?php if(isset($_GET['msg']))
-						echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
-						?>
-						<?php if(isset($_GET['maxmsg']))
-						echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
+						echo "<font color='red'>" . $_GET['msg'] . "</font><br><br>";
 						?>
 						Status: 
 						

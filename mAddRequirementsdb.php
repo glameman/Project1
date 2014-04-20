@@ -25,10 +25,11 @@
 	$managerID = $_SESSION['UID'];
 	$status = "Started";
 
+
 	mysql_query("INSERT INTO $table(PID, Req_Description, UID, Type, TimeRequired, Status) VALUES ('$projectID', '$reqdescription', '$managerID', '$type', '$timerequired', '$status')") or die(mysql_error());
 
 	mysql_close($conn);
 
 	$msg = "Requirement Successfully Added";
-	header("Location:mViewPReq.php?msg=$msg");
+	header("Location:mAddRequirements.php?msg=$msg");
 ?>

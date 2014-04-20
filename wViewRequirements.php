@@ -52,13 +52,10 @@ if($_SESSION['Type'] != 'Worker')
 				 <form tag='Change Status' action='updatereq.php' method='post'>
 					<div align='center'>";
 				    	if(isset($_GET['msg']))
-					  		echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
+					  		echo "<font color='red'>" . $_GET['msg'] . "</font><br><br>";
 
-					  	if(isset($_GET['maxmsg']))
-					  		echo "<font color='red'>" . $_GET['maxmsg'] . "</font><br><br>";
-
-					    echo "
-					    <select name='requirement'><option value=''> --Select Requirement ID-- </option>";
+					    echo "Select Requirement ID: 
+					    <select name='requirement'>";
                                     $con = mysql_connect("localhost","root","pass") or die("Could not connect to database");
                                     mysql_select_db("my_db") or die("Could not find database");
                                     
