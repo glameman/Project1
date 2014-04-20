@@ -98,7 +98,8 @@ if($_SESSION['Type'] != 'Tenant')
 							$PID = $row['ProjectID'];
 							$query2 = mysql_query("SELECT U.UID, U.FirstName, U.LastName 
 												  FROM users U, requirements R 
-												  WHERE  R.PID = $PID and R.UID = U.UID");
+												  WHERE  R.PID = $PID and R.UID = U.UID
+												  GROUP BY U.LastName");
 
 							$numrows1 = mysql_num_rows($query2);
 
