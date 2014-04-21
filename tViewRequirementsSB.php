@@ -77,11 +77,11 @@ if($_SESSION['Type'] != 'Tenant')
 
 						echo "<table class='table table-striped' width='80%' align='center'>
 							<tr>
-							<th>ReqID</th>
-							<th>ReqDescription</th>
+							<th>ID</th>
+							<th>Description</th>
 							<th>Status</th>
 							<th>Type</th>
-							<th>TimeRequired</th>
+							<th>Time Required</th>
 							<th>Assigned to</th>
 							</tr>";
 

@@ -64,8 +64,8 @@ session_start();
 
 
 						$query = mysql_query("SELECT * 
-											  FROM requirements 
-											  WHERE PID = $PID");
+											  FROM requirements R, users U 
+											  WHERE PID = $PID and R.UID = U.UID");
 
 						// Check connection
 						
@@ -80,7 +80,7 @@ session_start();
 							<th> Requirement Description </th>
 							<th> Type </th>
 							<th> Time Required </th>
-							<th> UID </th>
+							<th> Worker Assigned </th>
 							<th> Status </th>
 							</tr>";
 
@@ -92,7 +92,7 @@ session_start();
 							echo "<td>" . $row['Req_Description'] . "</td>";
 							echo "<td>" . $row['Type'] . "</td>";
 							echo "<td>" . $row['TimeRequired'] . "</td>";
-							echo "<td>" . $row['UID'] . "</td>";
+							echo "<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
 							echo "<td>" . $row['Status'] . "</td>";
 							echo "</tr>";
 						}

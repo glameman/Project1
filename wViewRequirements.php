@@ -100,8 +100,8 @@ if($_SESSION['Type'] != 'Worker')
 						echo "<table class='table table-striped' width='80%' align='center'>
 							<tr>
 							<th> Req ID </th>
-							<th> Req_Description </th>
-							<th> Req Status </th>
+							<th> Description </th>
+							<th> Status </th>
 							<th> Project ID </th>
 							<th> Project Name </th>
 							</tr>";
