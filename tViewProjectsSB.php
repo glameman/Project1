@@ -73,23 +73,23 @@ if($_SESSION['Type'] != 'Tenant')
 					{
 	                    echo "<div class='panel panel-default'>
 							<!-- Default panel contents -->
-							<div class='panel-heading'>
+							<div class='panel-heading' style='background-color:#505050'>
 							  	<table width='100%'><tr>
-							  	<td><b>Project ID</b></td>
-							  	<td><b>Project Name</b></td>
-							  	<td><b>Project Manager</b></td>
-							  	<td><b>Status</b></td>
-							  	<td><b>Start Date</b></td>
-							  	<td><b>Expected End Date</b></td>
+							  	<td><b><font color=#ffffff>Project ID</font></b></td>
+							  	<td><b><font color=#ffffff>Project Name</font></b></td>
+							  	<td><b><font color=#ffffff>Project Manager</font></b></td>
+							  	<td><b><font color=#ffffff>Status</font></b></td>
+							  	<td><b><font color=#ffffff>Start Date</font></b></td>
+							  	<td><b><font color=#ffffff>Expected End Date</font></b></td>
 							  	</tr>
 
 							  	<tr>
-							  	<td>" . $row['ProjectID'] . "</td>
-								<td>" . $row['ProjectName'] . "</td>
-								<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>
-								<td>" . $row['Status'] . "</td>
-								<td>" . $row['StartDate'] . "</td>
-								<td>" . $row['ExpectedEndDate'] . "</td>
+							  	<td><font color=#ffffff>" . $row['ProjectID'] . "</font></td>
+								<td><font color=#ffffff>" . $row['ProjectName'] . "</font></td>
+								<td><font color=#ffffff>" . $row['FirstName'] . " " . $row['LastName'] . "</font></td>
+								<td><font color=#ffffff>" . $row['Status'] . "</font></td>
+								<td><font color=#ffffff>" . $row['StartDate'] . "</font></td>
+								<td><font color=#ffffff>" . $row['ExpectedEndDate'] . "</font></td>
 								</tr></table>
 							</div>
 							<div class='panel-body'>
