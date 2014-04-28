@@ -63,7 +63,7 @@ session_start();
 
 
 
-						$query = mysql_query("SELECT * 
+						$query = mysql_query("SELECT R.ReqID, R.PID, R.Req_Description, R.Type, R.TimeRequired, U.FirstName, U.LastName, R.Status 
 											  FROM requirements R, users U 
 											  WHERE PID = $PID and R.UID = U.UID");
 
