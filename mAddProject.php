@@ -50,12 +50,14 @@ session_start();
                     <?php if(isset($_GET['msg']))
                         echo "<font color='red'><br>" . $_GET['msg'] . "</font>";
                     ?>
-                    Project Name*: <input type="text" name="projname" />
-                    </br></br>
-                    Start Date (YYYY-MM-DD): <input type="text" name="startdate" />
-                    </br><br>
-                    Expected End Date (YYYY-MM-DD): <input type="text" name="enddate" />
-                    </br><br>
+
+                    <table width="100%"><tr height="40px"><td width="50%"><div align="right">
+                    Project Name*: &nbsp;</div></td><td><input type="text" name="projname" />
+                    </td></tr><tr height="40px"><td><div align="right">
+                    Start Date (YYYY-MM-DD): &nbsp;</div></td><td><input type="text" name="startdate" />
+                    </td></tr><tr height="40px"><td><div align="right">
+                    Expected End Date (YYYY-MM-DD): &nbsp;</div></td><td><input type="text" name="enddate" />
+                    </tr></table><br>
                         <input type="submit" value="Submit" />
                         </br><br>
                     <p>Note: Please make sure your details are correct before submitting and that all fields marked with * are completed!.</p>

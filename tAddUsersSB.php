@@ -62,11 +62,11 @@ if($_SESSION['Type'] != 'Tenant')
 							  	?>
 							    Username*: <input type="text" name="username" />
 				 				</br></br>
-							    Password*: <input type="password" name="password" />
+							    Password*: &nbsp; <input type="password" name="password" />
 				 				</br><br>
-							    First Name* : <input type="text" name="firstname" />
+							    First Name*: <input type="text" name="firstname" />
 				 				</br><br>
-							    Last Name* : <input type="text" name="lastname" />
+							    Last Name*: <input type="text" name="lastname" />
 				 				</br><br>
 				 				Type: 
 							   	<select class="selectpicker" name="type">

@@ -50,14 +50,17 @@ session_start();
                             <?php if(isset($_GET['msg']))
                                 echo "<font color='green'>" . $_GET['msg'] . "</font><br><br>";
                             ?>
-                            Project ID*: <input type="int" name="PID"/>
-                            </br></br>
-                            Type*: <input type = "text" name="type"/>
-                            </br><br>
-                            Time Required (hrs)*: <input type="text" name="timerequired" />
-                            </br><br>
-                            Requirement Description*: <input type="text" name="reqdescription"/>
-                            </br></br>
+
+                            <table width="100%"><tr height="40px"><td width="50%"><div align="right">
+                            Project ID*: &nbsp;</div></td><td><input type="int" name="PID"/>
+                            </td></tr><tr height="40px"><td><div align="right">
+                            Type*: &nbsp;</div></td><td><input type = "text" name="type"/>
+                            </td></tr><tr height="40px"><td><div align="right">
+                            Time Required (hrs)*: &nbsp;</div></td><td><input type="text" name="timerequired" />
+                            </td></tr><tr height="40px"><td><div align="right">
+                            Requirement Description*: &nbsp;</div></td><td><input type="text" name="reqdescription"/>
+                            </tr></table>
+                            <br>
                             Assign Worker:
                             <select name="worker"><option value=""> --Select Category-- </option>
                                 <?php
