@@ -22,11 +22,11 @@
 	$type = $_POST['type'];
 	$timerequired = $_POST['timerequired'];
 	$projectID = $_POST['PID'];
-	$managerID = $_SESSION['UID'];
+	$workerID = $_POST['worker'];
 	$status = "Started";
 
 
-	mysql_query("INSERT INTO $table(PID, Req_Description, UID, Type, TimeRequired, Status) VALUES ('$projectID', '$reqdescription', '$managerID', '$type', '$timerequired', '$status')") or die(mysql_error());
+	mysql_query("INSERT INTO $table(PID, Req_Description, UID, Type, TimeRequired, Status) VALUES ('$projectID', '$reqdescription', '$workerID', '$type', '$timerequired', '$status')") or die(mysql_error());
 
 	mysql_close($conn);
 
